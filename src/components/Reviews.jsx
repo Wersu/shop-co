@@ -83,8 +83,8 @@ const Reviews = () => {
     requestAnimationFrame(() => requestAnimationFrame(() => markEdges(s)))
 
   return (
-    <div className="reviews relative py-20">
-      <div className="container mx-auto mb-6 flex items-center justify-between px-4">
+    <div className="reviews relative pt-20">
+      <div className="container mx-auto mb-6 flex max-w-7xl items-center justify-between px-4">
         <h2 className="title text-3xl font-black">OUR HAPPY CUSTOMERS</h2>
         <div className="flex gap-2">
           <button
@@ -152,11 +152,17 @@ const Reviews = () => {
           watchSlidesProgress
           loop={false}
           className="py-8"
+          breakpoints={{
+            320: {
+              // spaceBetween: 60,
+            },
+            640: {},
+          }}
         >
           {reviews.map((review, idx) => (
             <SwiperSlide key={idx} className="flex !w-auto">
-              <div className="review-card mx-2 w-[400px]">
-                <div className="flex h-full flex-col rounded-2xl border border-black/10 bg-white p-6 px-7 pt-8">
+              <div className="review-card mx-2 w-[500px] max-[520px]:w-[350px] max-[350px]:w-[300px] sm:w-[400px]">
+                <div className="flex h-full flex-col rounded-2xl border border-black/10 bg-white p-6 px-7 pt-8 max-[350px]:p-3 max-[350px]:px-3 max-[350px]:pt-5">
                   <div className="mb-3.5">
                     <RatingStars rating={review.rating} />
                   </div>
