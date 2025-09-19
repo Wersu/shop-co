@@ -6,17 +6,21 @@ import NewArrivals from './components/NewArrivals'
 import TopSelling from './components/TopSelling'
 import DressStyle from './components/DressStyle'
 import Reviews from './components/Reviews'
+import Footer from './components/Footer'
 
 function App() {
   return (
-    <div>
+    <div className="relative">
       <Header />
-      <Hero />
-      <Brands />
-      <NewArrivals />
-      <TopSelling />
-      <DressStyle />
-      <Reviews />
+      <main className="pt-[80px] sm:pt-0">
+        <Hero />
+        <Brands />
+        <NewArrivals />
+        <TopSelling />
+        <DressStyle />
+        <Reviews />
+      </main>
+      <Footer />
     </div>
   )
 }
