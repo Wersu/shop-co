@@ -10,7 +10,7 @@ import Footer from './components/Footer'
 
 function App() {
   return (
-    <div className="relative">
+    <div>
       <Header />
       <main className="pt-[80px] sm:pt-0">
         <Hero />
