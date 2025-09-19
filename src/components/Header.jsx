@@ -36,7 +36,7 @@ function Header() {
   }
 
   return (
-    <header className="top:0 fixed z-50 w-dvw bg-white py-6 sm:static">
+    <header className="top:0 fixed z-50 w-full bg-white py-6 sm:static">
       <div className="container mx-auto flex max-w-7xl items-center justify-between gap-6 px-2">
         <div className="flex items-center gap-4 sm:gap-6">
           <button
