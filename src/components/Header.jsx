@@ -1,7 +1,10 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 
 function Header() {
-  let [open, setOpen] = useState(false)
+  let [openDropdown, setOpenDropdown] = useState(false)
+  let [openSidenav, setOpenSidenav] = useState(false)
+
+  useLockBody(openSidenav)
   const closeTimer = useRef(null)
 
   const handleEnter = () => {
@@ -9,20 +12,46 @@ function Header() {
       clearTimeout(closeTimer.current)
       closeTimer.current = null
     }
-    setOpen(true)
+    setOpenDropdown(true)
   }
 
   const handleLeave = () => {
     closeTimer.current = setTimeout(() => {
-      setOpen(false)
+      setOpenDropdown(false)
       closeTimer.current = null
     }, 200)
   }
 
+  function useLockBody(locked) {
+    useEffect(() => {
+      if (locked) {
+        document.body.style.overflow = 'hidden'
+      } else {
+        document.body.style.overflow = ''
+      }
+      return () => {
+        document.body.style.overflow = ''
+      }
+    }, [locked])
+  }
+
   return (
-    <header className="py-6">
-      <div className="container mx-auto flex items-center justify-between px-2">
-        <div className="flex items-center gap-6">
+    <header className="top:0 fixed z-50 w-dvw bg-white py-6 sm:static">
+      <div className="container mx-auto flex max-w-7xl items-center justify-between gap-6 px-2">
+        <div className="flex items-center gap-4 sm:gap-6">
+          <button
+            className="flex flex-col items-center gap-1 px-[3px] py-[5px] sm:hidden"
+            onClick={() => {
+              setOpenSidenav(true)
+            }}
+            aria-controls="mobile-sidenav"
+            aria-expanded={openSidenav}
+            aria-label="Open menu"
+          >
+            <span className="block h-[2px] w-[18px] rounded-2xl bg-black"></span>
+            <span className="block h-[2px] w-[18px] rounded-2xl bg-black"></span>
+            <span className="block h-[2px] w-[18px] rounded-2xl bg-black"></span>
+          </button>
           <a
             href="#!"
             className="logo-text text-2xl font-bold"
@@ -31,7 +60,7 @@ function Header() {
           >
             SHOP.CO
           </a>
-          <nav className="hidden items-center gap-6 md:flex">
+          <nav className="hidden items-center gap-6 sm:flex">
             <div
               className="relative inline-block"
               onMouseEnter={handleEnter}
@@ -40,7 +69,7 @@ function Header() {
               <button
                 type="button"
                 aria-haspopup="menu"
-                aria-expanded={open}
+                aria-expanded={openDropdown}
                 className="flex items-center gap-1 hover:text-black/60"
               >
                 Shop
@@ -61,13 +90,13 @@ function Header() {
 
               <div
                 className={
-                  'absolute left-0 z-11 mt-2 w-28 transform rounded-lg bg-white p-3 shadow-lg transition-all duration-200 ease-in-out' +
-                  (open
+                  'absolute left-0 z-11 mt-2 w-28 transform rounded-lg bg-white p-3 shadow-lg transition-all duration-200 ease-in-out ' +
+                  (openDropdown
                     ? 'pointer-events-auto translate-y-0 opacity-100'
                     : 'pointer-events-none -translate-y-2 opacity-0')
                 }
                 role="menu"
-                aria-hidden={!open}
+                aria-hidden={!openDropdown}
                 onMouseEnter={handleEnter}
                 onMouseLeave={handleLeave}
               >
@@ -108,8 +137,8 @@ function Header() {
           </nav>
         </div>
 
-        <div className="flex gap-10">
-          <div className="w-dvh max-w-xl">
+        <div className="flex flex-3 justify-end gap-10">
+          <div className="hidden max-w-xl flex-3 lg:block">
             <form
               action=""
               className="flex gap-3 rounded-full border border-transparent bg-neutral-100 px-4 py-3 text-black/100"
@@ -143,20 +172,25 @@ function Header() {
           </div>
 
           <div className="flex gap-3.5">
-            {/* <button className="" type="button" aria-label="Search">
+            <button
+              className="hover:text-black/60 lg:hidden"
+              type="button"
+              aria-label="Search"
+            >
               <svg
                 width="24"
                 height="24"
                 viewBox="0 0 24 24"
                 fill="none"
+                className="h-5 w-5 sm:h-6 sm:w-6"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
                   d="M21.7959 20.2041L17.3437 15.75C18.6787 14.0104 19.3019 11.8282 19.087 9.64607C18.8722 7.4639 17.8353 5.44516 16.1867 3.99937C14.5382 2.55357 12.4014 1.78899 10.2098 1.86071C8.01829 1.93244 5.93607 2.8351 4.38558 4.38559C2.83509 5.93608 1.93243 8.0183 1.8607 10.2098C1.78898 12.4014 2.55356 14.5382 3.99936 16.1867C5.44515 17.8353 7.46389 18.8722 9.64606 19.087C11.8282 19.3019 14.0104 18.6787 15.75 17.3438L20.2059 21.8006C20.3106 21.9053 20.4348 21.9883 20.5715 22.0449C20.7083 22.1016 20.8548 22.1307 21.0028 22.1307C21.1508 22.1307 21.2973 22.1016 21.4341 22.0449C21.5708 21.9883 21.695 21.9053 21.7997 21.8006C21.9043 21.696 21.9873 21.5717 22.044 21.435C22.1006 21.2983 22.1298 21.1517 22.1298 21.0037C22.1298 20.8558 22.1006 20.7092 22.044 20.5725C21.9873 20.4358 21.9043 20.3115 21.7997 20.2069L21.7959 20.2041ZM4.12499 10.5C4.12499 9.23915 4.49888 8.0066 5.19938 6.95824C5.89987 5.90988 6.89551 5.09278 8.06039 4.61027C9.22527 4.12776 10.5071 4.00151 11.7437 4.2475C12.9803 4.49348 14.1162 5.10064 15.0078 5.9922C15.8994 6.88376 16.5065 8.01967 16.7525 9.2563C16.9985 10.4929 16.8722 11.7747 16.3897 12.9396C15.9072 14.1045 15.0901 15.1001 14.0418 15.8006C12.9934 16.5011 11.7608 16.875 10.5 16.875C8.80977 16.8733 7.18927 16.2011 5.99411 15.0059C4.79894 13.8107 4.12673 12.1902 4.12499 10.5Z"
-                  fill="black"
+                  fill="currentColor"
                 />
               </svg>
-            </button> */}
+            </button>
             <button
               className="hover:text-black/60"
               type="button"
@@ -167,6 +201,7 @@ function Header() {
                 height="24"
                 viewBox="0 0 24 24"
                 fill="none"
+                className="h-5 w-5 sm:h-6 sm:w-6"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
@@ -185,6 +220,7 @@ function Header() {
                 height="24"
                 viewBox="0 0 24 24"
                 fill="none"
+                className="h-5 w-5 sm:h-6 sm:w-6"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
@@ -196,6 +232,69 @@ function Header() {
           </div>
         </div>
       </div>
+
+      <aside
+        id="mobile-sidenav"
+        role="dialog"
+        aria-modal="true"
+        className={`fixed top-0 left-0 z-50 h-dvh w-dvw transform-gpu overflow-y-auto bg-white transition-transform duration-300 ease-out ${openSidenav ? 'translate-x-0' : '-translate-x-full'}`}
+      >
+        <nav className="flex h-dvh items-center justify-center px-6 text-xl">
+          <ul className="flex flex-col items-center justify-center gap-7 text-black">
+            <li className="text-center">
+              <span className="text-black/60">Shop</span>
+              <ul className="mt-1 flex flex-col items-center gap-1">
+                <li>
+                  <a href="#!" className="hover:text-black/60">
+                    Casual
+                  </a>
+                </li>
+                <li>
+                  <a href="#!" className="hover:text-black/60">
+                    Formal
+                  </a>
+                </li>
+                <li>
+                  <a href="#!" className="hover:text-black/60">
+                    Party
+                  </a>
+                </li>
+                <li>
+                  <a href="#!" className="hover:text-black/60">
+                    Gym
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" className="hover:text-black/60">
+                On Sale
+              </a>
+            </li>
+            <li>
+              <a href="#" className="hover:text-black/60">
+                New Arrivals
+              </a>
+            </li>
+            <li>
+              <a href="#" className="hover:text-black/60">
+                Brands
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <button
+          className="absolute top-3 right-3 flex h-12 w-12 items-center justify-center"
+          onClick={() => {
+            setOpenSidenav(false)
+          }}
+          aria-label="Close menu"
+        >
+          <span className="block h-[3px] w-8 rotate-45 rounded-2xl bg-black"></span>
+          <span className="-ml-8 block h-[3px] w-8 -rotate-45 rounded-2xl bg-black"></span>
+        </button>
+      </aside>
     </header>
   )
 }
