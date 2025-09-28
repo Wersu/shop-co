@@ -1,6 +1,9 @@
 import React from 'react'
+// import useScrollAnimation from '../hooks/useScrollAnimation'
+import { Link } from 'react-router-dom'
 
 const Hero = () => {
+  // useScrollAnimation()
   return (
     <section className="relative overflow-hidden bg-[#f0f0f0] sm:mt-0">
       <div className="relative container mx-auto max-w-7xl px-2 pb-[500px] lg:pb-0">
@@ -13,12 +16,12 @@ const Hero = () => {
             designed to bring out your individuality and cater to your sense of
             style.
           </p>
-          <a
-            href="#!"
+          <Link
+            to="/catalog"
             className="inline-block w-full rounded-full bg-black p-4 text-center text-white hover:opacity-60 sm:w-52"
           >
             Shop Now
-          </a>
+          </Link>
 
           <dl className="mt-1 flex max-w-xl flex-col flex-wrap items-center justify-center gap-y-3.5 sm:mt-4 sm:flex-row">
             <div className="flex flex-col-reverse items-center border-black/10 sm:border-r-1 sm:pr-8">

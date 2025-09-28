@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 function Header() {
   let [openDropdown, setOpenDropdown] = useState(false)
@@ -52,14 +53,14 @@ function Header() {
             <span className="block h-[2px] w-[18px] rounded-2xl bg-black"></span>
             <span className="block h-[2px] w-[18px] rounded-2xl bg-black"></span>
           </button>
-          <a
-            href="#!"
+          <Link
+            to="/"
             className="logo-text text-2xl font-bold"
             aria-label="Home"
             title="Home"
           >
             SHOP.CO
-          </a>
+          </Link>
           <nav className="hidden items-center gap-6 sm:flex">
             <div
               className="relative inline-block"
@@ -102,38 +103,50 @@ function Header() {
               >
                 <ul className="flex flex-col gap-2">
                   <li>
-                    <a href="#!" className="text-black hover:text-black/60">
+                    <Link
+                      to="/catalog"
+                      className="text-black hover:text-black/60"
+                    >
                       Casual
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#!" className="text-black hover:text-black/60">
+                    <Link
+                      to="/catalog"
+                      className="text-black hover:text-black/60"
+                    >
                       Formal
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#!" className="text-black hover:text-black/60">
+                    <Link
+                      to="/catalog"
+                      className="text-black hover:text-black/60"
+                    >
                       Party
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#!" className="text-black hover:text-black/60">
+                    <Link
+                      to="/catalog"
+                      className="text-black hover:text-black/60"
+                    >
                       Gym
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
             </div>
 
-            <a href="#" className="hover:text-black/60">
+            <Link to="/catalog" className="hover:text-black/60">
               On Sale
-            </a>
-            <a href="#" className="hover:text-black/60">
+            </Link>
+            <Link to="/catalog" className="hover:text-black/60">
               New Arrivals
-            </a>
-            <a href="#" className="hover:text-black/60">
+            </Link>
+            <Link to="/catalog" className="hover:text-black/60">
               Brands
-            </a>
+            </Link>
           </nav>
         </div>
 
@@ -171,7 +184,7 @@ function Header() {
             </form>
           </div>
 
-          <div className="flex gap-3.5">
+          <div className="flex items-center gap-3.5">
             <button
               className="hover:text-black/60 lg:hidden"
               type="button"
@@ -191,9 +204,9 @@ function Header() {
                 />
               </svg>
             </button>
-            <button
-              className="hover:text-black/60"
-              type="button"
+            <Link
+              className="inline-block hover:text-black/60"
+              to="/cart"
               aria-label="Cart"
             >
               <svg
@@ -209,7 +222,7 @@ function Header() {
                   fill="currentColor"
                 />
               </svg>
-            </button>
+            </Link>
             <button
               className="hover:text-black/60"
               type="button"
@@ -245,41 +258,41 @@ function Header() {
               <span className="text-black/60">Shop</span>
               <ul className="mt-1 flex flex-col items-center gap-1">
                 <li>
-                  <a href="#!" className="hover:text-black/60">
+                  <Link to="/catalog" className="hover:text-black/60">
                     Casual
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#!" className="hover:text-black/60">
+                  <Link to="/catalog" className="hover:text-black/60">
                     Formal
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#!" className="hover:text-black/60">
+                  <Link to="/catalog" className="hover:text-black/60">
                     Party
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#!" className="hover:text-black/60">
+                  <Link to="/catalog" className="hover:text-black/60">
                     Gym
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </li>
             <li>
-              <a href="#" className="hover:text-black/60">
+              <Link to="/catalog" className="hover:text-black/60">
                 On Sale
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="hover:text-black/60">
+              <Link to="/catalog" className="hover:text-black/60">
                 New Arrivals
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="hover:text-black/60">
+              <Link to="/catalog" className="hover:text-black/60">
                 Brands
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>
