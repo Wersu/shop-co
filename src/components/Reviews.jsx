@@ -2,11 +2,13 @@ import React, { useRef } from 'react'
 import RatingStars from './RatingStar'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
+import useScrollAnimation from '../hooks/useScrollAnimation'
 
 import 'swiper/css'
 import 'swiper/css/navigation'
 
 const Reviews = () => {
+  useScrollAnimation()
   const swiperRef = useRef(null)
 
   const reviews = [
@@ -83,7 +85,7 @@ const Reviews = () => {
     requestAnimationFrame(() => requestAnimationFrame(() => markEdges(s)))
 
   return (
-    <div className="reviews relative pt-20">
+    <section className="reviews scroll-hidden relative pt-20">
       <div className="container mx-auto mb-6 flex max-w-7xl items-center justify-between px-4">
         <h2 className="title text-3xl font-black">OUR HAPPY CUSTOMERS</h2>
         <div className="flex gap-2">
@@ -182,13 +184,18 @@ const Reviews = () => {
                     </svg>
                   </div>
                   <p className="text-black/60">"{review.text}"</p>
+                  {reviews.data && (
+                    <p className="mt-3 text-black/60">
+                      Posted on {reviews.data}
+                    </p>
+                  )}
                 </div>
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
       </div>
-    </div>
+    </section>
   )
 }
 

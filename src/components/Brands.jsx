@@ -1,6 +1,8 @@
 import React from 'react'
+import useScrollAnimation from '../hooks/useScrollAnimation'
 
 const Brands = () => {
+  useScrollAnimation()
   return (
     <div className="bg-black">
       <div className="container mx-auto flex max-w-7xl flex-wrap justify-center gap-x-8 gap-y-5 px-3 py-11 lg:justify-between">

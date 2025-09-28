@@ -1,16 +1,19 @@
 import React from 'react'
+import useScrollAnimation from '../hooks/useScrollAnimation'
+import { Link } from 'react-router-dom'
 
 const DressStyle = () => {
+  useScrollAnimation()
   return (
-    <section className="px-4">
+    <section className="scroll-hidden px-4">
       <div className="container mx-auto max-w-7xl rounded-2xl bg-[#F0F0F0] px-6 pt-10 pb-7 lg:px-16 lg:pt-18 lg:pb-19">
         <h2 className="title title-section mb-7 text-center text-5xl md:mb-16">
           BROWSE BY DRESS STYLE
         </h2>
 
         <div className="mb-4 block gap-5 md:mb-5 md:flex">
-          <a
-            href="#!"
+          <Link
+            to="/catalog"
             className="relative mb-4 block h-48 flex-2 overflow-hidden rounded-xl bg-white md:mb-0 md:h-72"
           >
             <img
@@ -25,9 +28,9 @@ const DressStyle = () => {
             >
               Casual
             </h3>
-          </a>
-          <a
-            href="#!"
+          </Link>
+          <Link
+            to="/catalog"
             className="relative block h-48 flex-3 overflow-hidden rounded-xl md:h-72"
           >
             <img
@@ -41,11 +44,11 @@ const DressStyle = () => {
             >
               Formal
             </h3>
-          </a>
+          </Link>
         </div>
         <div className="block gap-5 md:flex">
-          <a
-            href="#!"
+          <Link
+            to="/catalog"
             className="relative mb-4 block h-48 flex-3 overflow-hidden rounded-xl md:mb-0 md:h-72"
           >
             <img
@@ -59,9 +62,9 @@ const DressStyle = () => {
             >
               Party
             </h3>
-          </a>
-          <a
-            href="#!"
+          </Link>
+          <Link
+            to="/catalog"
             className="relative block h-48 flex-2 overflow-hidden rounded-xl bg-white md:h-72"
           >
             <img
@@ -76,7 +79,7 @@ const DressStyle = () => {
             >
               Gym
             </h3>
-          </a>
+          </Link>
         </div>
       </div>
     </section>
