@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import RatingStars from './RatingStar'
 import { useSelector, useDispatch } from 'react-redux'
 import {
@@ -82,11 +82,9 @@ const ProductInfo = () => {
             return (
               <li
                 key={color}
-                className={
-                  'flex h-[37px] w-[37px] cursor-pointer items-center justify-center rounded-full ' +
-                  ` bg-[${color}]`
-                }
+                className={`flex h-[37px] w-[37px] cursor-pointer items-center justify-center rounded-full hover:scale-90`}
                 onClick={() => dispatch(setColor(color))}
+                style={{ backgroundColor: color }}
               >
                 {selectedColor === color && (
                   <svg
@@ -124,7 +122,7 @@ const ProductInfo = () => {
                 className={
                   selectedSize === size
                     ? 'cursor-pointer rounded-full bg-black px-6 py-3 text-white'
-                    : 'cursor-pointer rounded-full bg-[#F0F0F0] px-6 py-3 text-black/60'
+                    : 'cursor-pointer rounded-full border border-[#F0F0F0] bg-[#F0F0F0] px-6 py-3 text-black/60 hover:border-black/60'
                 }
                 onClick={() => dispatch(setSize(size))}
               >
@@ -151,6 +149,7 @@ const ProductInfo = () => {
                   })
                 )
               }
+              className="hover:scale-120"
             >
               <svg
                 width="24"
@@ -179,6 +178,7 @@ const ProductInfo = () => {
                   })
                 )
               }
+              className="hover:scale-120"
             >
               <svg
                 width="24"
@@ -196,7 +196,7 @@ const ProductInfo = () => {
           </div>
         )}
         <button
-          className="flex flex-2 items-center justify-center rounded-full bg-black px-4 py-4 text-white"
+          className="flex flex-2 items-center justify-center rounded-full border border-black/0 bg-black px-4 py-4 text-base text-white transition-all hover:opacity-75"
           onClick={handleAddToCart}
         >
           Add to Cart
