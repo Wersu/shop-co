@@ -6,7 +6,7 @@ const ProductCard = ({ product }) => {
   return (
     <div>
       <Link
-        to="/product/:id"
+        to={`/product/${product.id}`}
         className="block overflow-hidden rounded-3xl bg-[#F0EEED]"
       >
         <img

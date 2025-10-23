@@ -1,42 +1,12 @@
 import React from 'react'
 import ProductCard from './ProductCard'
 import useScrollAnimation from '../hooks/useScrollAnimation'
-import { Link } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
 
 const Recommendations = () => {
+  const product = useSelector((state) => state.product.product)
   useScrollAnimation()
-  let products = [
-    {
-      id: 1,
-      imgPath: '/img/products/blue-polo.png',
-      title: 'Polo with Contrast Trims',
-      rating: 4.0,
-      price: 242,
-      sale: 20,
-    },
-    {
-      id: 2,
-      imgPath: '/img/products/white-t-shirt.png',
-      title: 'Gradient Graphic T-shirt',
-      rating: 3.5,
-      price: 145,
-    },
-    {
-      id: 3,
-      imgPath: '/img/products/pink-polo.png',
-      title: 'Polo with Tipping Details',
-      rating: 4.5,
-      price: 180,
-    },
-    {
-      id: 4,
-      imgPath: '/img/products/black-striped-t-shirt.png',
-      title: 'Black Striped T-shirt',
-      rating: 5.0,
-      price: 150,
-      sale: 30,
-    },
-  ]
+  let products = product.recommendations
 
   return (
     <section className="scroll-hidden mx-auto flex max-w-7xl flex-col items-center gap-13 pt-16 pb-20 sm:gap-8 sm:pt-12 sm:pb-10 xl:container">

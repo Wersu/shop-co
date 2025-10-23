@@ -1,25 +1,11 @@
 import React, { useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 
-const ProductGallery = ({ selectedColor }) => {
+const ProductGallery = () => {
   let [indexImg, setIndexImg] = useState(0)
-
-  let images = {
-    brown: [
-      '/img/product-page/t-shirt-front.png',
-      '/img/product-page/t-shirt-back.png',
-      '/img/product-page/t-shirt-real.png',
-    ],
-    green: [
-      '/img/products/stripped-t-shirt.png',
-      '/img/products/stripped-t-shirt.png',
-      '/img/products/stripped-t-shirt.png',
-    ],
-    blue: [
-      '/img/products/blue-polo.png',
-      '/img/products/blue-polo.png',
-      '/img/products/blue-polo.png',
-    ],
-  }
+  const product = useSelector((state) => state.product.product)
+  const selectedColor = useSelector((state) => state.product.selectedColor)
+  const images = product.images
 
   return (
     <div className="flex flex-1 gap-3.5">
@@ -35,7 +21,7 @@ const ProductGallery = ({ selectedColor }) => {
             >
               <img
                 src={item}
-                alt=""
+                alt={product.title}
                 className="block overflow-hidden rounded-3xl bg-[#F0EEED] object-cover"
               />
             </button>
