@@ -23,6 +23,7 @@ function Header() {
   useLockBody(openSearch)
   const closeTimer = useRef(null)
   const searchTimer = useRef(null)
+  const mobileSearchInputRef = useRef(null)
 
   const handleEnter = () => {
     if (closeTimer.current) {
@@ -72,6 +73,14 @@ function Header() {
       }
     }
   }, [])
+
+  useEffect(() => {
+    if (openSearch && mobileSearchInputRef.current) {
+      setTimeout(() => {
+        mobileSearchInputRef.current.focus()
+      }, 100)
+    }
+  }, [openSearch])
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -411,6 +420,7 @@ function Header() {
               className="text-black/40 hover:text-black"
               type="submit"
               aria-label="Search"
+              onClick={handleSearchSubmit}
             >
               <svg
                 width="24"
@@ -433,42 +443,10 @@ function Header() {
               autoComplete="off"
               value={localSearchQuery}
               onChange={handleSearchChange}
+              ref={mobileSearchInputRef}
             />
           </form>
 
-          {/* <div className="space-y-3 pt-2">
-            {filteredProducts.map((product) => (
-              <Link
-                key={product.id}
-                to={`/product/${product.id}`}
-                className="flex items-center gap-3 rounded-lg p-2 transition-colors hover:bg-gray-50"
-              >
-                <img
-                  src={product.images[product.colors[0]][0]}
-                  alt={product.title}
-                  className="h-16 w-16 rounded object-cover"
-                />
-                <div className="flex-1">
-                  <h4 className="font-medium">{product.title}</h4>
-                  <p className="line-clamp-1 text-xs text-gray-600">
-                    {product.description}
-                  </p>
-                  <div className="mt-1 flex items-center gap-2">
-                    <span className="text-sm font-semibold">
-                      $
-                      {product.price -
-                        (product.price * (product.sale || 0)) / 100}
-                    </span>
-                    {product.sale && (
-                      <span className="text-xs text-red-600 line-through">
-                        ${product.price}
-                      </span>
-                    )}
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div> */}
           <div className="space-y-3 pt-2">
             {filteredProducts.length === 0 && localSearchQuery.trim() && (
               <div className="p-4 text-center text-gray-500">
