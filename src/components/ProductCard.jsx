@@ -10,7 +10,7 @@ const ProductCard = ({ product }) => {
         className="block overflow-hidden rounded-3xl bg-[#F0EEED]"
       >
         <img
-          src={product.imgPath}
+          src={product.images[product.colors[0]][0]}
           alt={product.title}
           className="transition-transform hover:scale-110"
         />
@@ -18,7 +18,7 @@ const ProductCard = ({ product }) => {
       <div className="mt-4 flex flex-col gap-2">
         <Link
           className="subtitle text-xl hover:text-black/60"
-          to="/product/:id"
+          to={`/product/${product.id}`}
         >
           {product.title}
         </Link>
