@@ -4,9 +4,12 @@ import useScrollAnimation from '../hooks/useScrollAnimation'
 import { useSelector, useDispatch } from 'react-redux'
 
 const Recommendations = () => {
-  const product = useSelector((state) => state.product.product)
+  const indexes = useSelector((state) => state.product.product.recommendations)
+  let products = useSelector((state) => state.product.products)
+  products = products.filter((product) => indexes.includes(product.id))
+  console.log(products)
   useScrollAnimation()
-  let products = product.recommendations
+  // let products = product.recommendations
 
   return (
     <section className="scroll-hidden mx-auto flex max-w-7xl flex-col items-center gap-13 pt-16 pb-20 sm:gap-8 sm:pt-12 sm:pb-10 xl:container">
