@@ -15,7 +15,7 @@ const Cart = () => {
           <div className="flex justify-between gap-5">
             <div className="flex gap-4">
               <img
-                src="/public/img/products/bermuda-shorts.png"
+                src="/img/products/bermuda-shorts.png"
                 alt=""
                 className="h-31 w-31 rounded object-cover"
               />
