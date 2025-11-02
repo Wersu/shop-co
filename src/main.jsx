@@ -6,10 +6,14 @@ import './index.css'
 import { Provider } from 'react-redux'
 import { store } from './store/store'
 
+const base = import.meta.env.BASE_URL
+const basename =
+  typeof base === 'string' && base.startsWith('/') ? base : undefined
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter>
+      <BrowserRouter basename={basename}>
         <App />
       </BrowserRouter>
     </Provider>
