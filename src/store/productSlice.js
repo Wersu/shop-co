@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+const base = import.meta.env.BASE_URL
 
 const initialState = {
   selectedColor: null,
@@ -20,19 +21,19 @@ const initialState = {
       sizes: ['Small', 'Medium', 'Large', 'X-Large'],
       images: {
         '#4F4631': [
-          '/img/product-page/t-shirt-front.png',
-          '/img/product-page/t-shirt-back.png',
-          '/img/product-page/t-shirt-real.png',
+          `${base}/img/product-page/t-shirt-front.png`,
+          `${base}/img/product-page/t-shirt-back.png`,
+          `${base}/img/product-page/t-shirt-real.png`,
         ],
         '#314F4A': [
-          '/img/products/stripped-t-shirt.png',
-          '/img/products/stripped-t-shirt.png',
-          '/img/products/stripped-t-shirt.png',
+          `${base}/img/products/stripped-t-shirt.png`,
+          `${base}/img/products/stripped-t-shirt.png`,
+          `${base}/img/products/stripped-t-shirt.png`,
         ],
         '#31344F': [
-          '/img/products/blue-polo.png',
-          '/img/products/blue-polo.png',
-          '/img/products/blue-polo.png',
+          `${base}/img/products/blue-polo.png`,
+          `${base}/img/products/blue-polo.png`,
+          `${base}/img/products/blue-polo.png`,
         ],
       },
       faqs: [
@@ -200,19 +201,19 @@ const initialState = {
       sizes: ['Small', 'Medium', 'Large', 'X-Large'],
       images: {
         '#4F4631': [
-          '/img/product-page/t-shirt-front.png',
-          '/img/product-page/t-shirt-back.png',
-          '/img/product-page/t-shirt-real.png',
+          `${base}/img/product-page/t-shirt-front.png`,
+          `${base}/img/product-page/t-shirt-back.png`,
+          `${base}/img/product-page/t-shirt-real.png`,
         ],
         '#314F4A': [
-          '/img/products/stripped-t-shirt.png',
-          '/img/products/stripped-t-shirt.png',
-          '/img/products/stripped-t-shirt.png',
+          `${base}/img/products/stripped-t-shirt.png`,
+          `${base}/img/products/stripped-t-shirt.png`,
+          `${base}/img/products/stripped-t-shirt.png`,
         ],
         '#31344F': [
-          '/img/products/blue-polo.png',
-          '/img/products/blue-polo.png',
-          '/img/products/blue-polo.png',
+          `${base}/img/products/blue-polo.png`,
+          `${base}/img/products/blue-polo.png`,
+          `${base}/img/products/blue-polo.png`,
         ],
       },
       faqs: [
@@ -380,19 +381,19 @@ const initialState = {
       sizes: ['Small', 'Medium', 'Large', 'X-Large'],
       images: {
         '#4F4631': [
-          '/img/product-page/t-shirt-front.png',
-          '/img/product-page/t-shirt-back.png',
-          '/img/product-page/t-shirt-real.png',
+          `${base}/img/product-page/t-shirt-front.png`,
+          `${base}/img/product-page/t-shirt-back.png`,
+          `${base}/img/product-page/t-shirt-real.png`,
         ],
         '#314F4A': [
-          '/img/products/stripped-t-shirt.png',
-          '/img/products/stripped-t-shirt.png',
-          '/img/products/stripped-t-shirt.png',
+          `${base}/img/products/stripped-t-shirt.png`,
+          `${base}/img/products/stripped-t-shirt.png`,
+          `${base}/img/products/stripped-t-shirt.png`,
         ],
         '#31344F': [
-          '/img/products/blue-polo.png',
-          '/img/products/blue-polo.png',
-          '/img/products/blue-polo.png',
+          `${base}/img/products/blue-polo.png`,
+          `${base}/img/products/blue-polo.png`,
+          `${base}/img/products/blue-polo.png`,
         ],
       },
       faqs: [
@@ -560,19 +561,19 @@ const initialState = {
       sizes: ['Small', 'Medium', 'Large', 'X-Large'],
       images: {
         '#4F4631': [
-          '/img/product-page/t-shirt-front.png',
-          '/img/product-page/t-shirt-back.png',
-          '/img/product-page/t-shirt-real.png',
+          `${base}/img/product-page/t-shirt-front.png`,
+          `${base}/img/product-page/t-shirt-back.png`,
+          `${base}/img/product-page/t-shirt-real.png`,
         ],
         '#314F4A': [
-          '/img/products/stripped-t-shirt.png',
-          '/img/products/stripped-t-shirt.png',
-          '/img/products/stripped-t-shirt.png',
+          `${base}/img/products/stripped-t-shirt.png`,
+          `${base}/img/products/stripped-t-shirt.png`,
+          `${base}/img/products/stripped-t-shirt.png`,
         ],
         '#31344F': [
-          '/img/products/blue-polo.png',
-          '/img/products/blue-polo.png',
-          '/img/products/blue-polo.png',
+          `${base}/img/products/blue-polo.png`,
+          `${base}/img/products/blue-polo.png`,
+          `${base}/img/products/blue-polo.png`,
         ],
       },
       faqs: [
@@ -740,19 +741,19 @@ const initialState = {
       sizes: ['Small', 'Medium', 'Large', 'X-Large'],
       images: {
         '#4F4631': [
-          '/img/product-page/t-shirt-front.png',
-          '/img/product-page/t-shirt-back.png',
-          '/img/product-page/t-shirt-real.png',
+          `${base}/img/product-page/t-shirt-front.png`,
+          `${base}/img/product-page/t-shirt-back.png`,
+          `${base}/img/product-page/t-shirt-real.png`,
         ],
         '#314F4A': [
-          '/img/products/stripped-t-shirt.png',
-          '/img/products/stripped-t-shirt.png',
-          '/img/products/stripped-t-shirt.png',
+          `${base}/img/products/stripped-t-shirt.png`,
+          `${base}/img/products/stripped-t-shirt.png`,
+          `${base}/img/products/stripped-t-shirt.png`,
         ],
         '#31344F': [
-          '/img/products/blue-polo.png',
-          '/img/products/blue-polo.png',
-          '/img/products/blue-polo.png',
+          `${base}/img/products/blue-polo.png`,
+          `${base}/img/products/blue-polo.png`,
+          `${base}/img/products/blue-polo.png`,
         ],
       },
       faqs: [
