@@ -1,7 +1,7 @@
 import React from 'react'
 import ProductCard from './ProductCard'
 import useScrollAnimation from '../hooks/useScrollAnimation'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 const Recommendations = () => {
   const indexes = useSelector((state) => state.product.product.recommendations)

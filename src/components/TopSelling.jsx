@@ -2,7 +2,7 @@ import React from 'react'
 import ProductCard from './ProductCard'
 import useScrollAnimation from '../hooks/useScrollAnimation'
 import { Link } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 const TopSelling = () => {
   useScrollAnimation()
@@ -25,7 +25,7 @@ const TopSelling = () => {
       </div>
       <Link
         to="/catalog"
-        className="box-border w-55 rounded-full border-1 border-black/10 px-13 py-3 text-center hover:border-black hover:bg-black hover:text-white max-sm:w-[90%] sm:py-4"
+        className="box-border w-55 rounded-full border border-black/10 px-13 py-3 text-center hover:border-black hover:bg-black hover:text-white max-sm:w-[90%] sm:py-4"
       >
         View All
       </Link>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Recommendations from '../components/Recommendations'
 
 import Breadcrumbs from '../components/Breadcrumbs'

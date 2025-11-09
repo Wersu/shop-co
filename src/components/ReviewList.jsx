@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import RatingStars from './RatingStar'
-import { useSelector, useDispatch } from 'react-redux'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useSelector } from 'react-redux'
+import { AnimatePresence } from 'framer-motion'
 
 const ReviewList = () => {
   const [visibleCard, setVisibleCard] = useState(4)

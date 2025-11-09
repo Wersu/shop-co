@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import ReviewList from './ReviewList'
-import { useSelector, useDispatch } from 'react-redux'
-import { q } from 'framer-motion/m'
+import { useSelector } from 'react-redux'
 
 const ProductTabs = () => {
   const product = useSelector((state) => state.product.product)

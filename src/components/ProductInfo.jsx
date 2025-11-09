@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import RatingStars from './RatingStar'
 import { useSelector, useDispatch } from 'react-redux'
 import {
@@ -7,7 +7,6 @@ import {
   addToCart,
   removeFromCart,
 } from '../store/productSlice'
-import { motion } from 'framer-motion'
 
 const ProductInfo = () => {
   const product = useSelector((state) => state.product.product)
