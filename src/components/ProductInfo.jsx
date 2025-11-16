@@ -1,12 +1,10 @@
 import React, { useState } from 'react'
 import RatingStars from './RatingStar'
 import { useSelector, useDispatch } from 'react-redux'
-import {
-  setColor,
-  setSize,
-  addToCart,
-  removeFromCart,
-} from '../store/productSlice'
+import { setColor, setSize } from '../store/productSlice'
+import { addToCart, removeFromCart } from '../store/cartSlice'
+// eslint-disable-next-line no-unused-vars
+import { motion } from 'framer-motion'
 
 const ProductInfo = () => {
   const product = useSelector((state) => state.product.product)
@@ -16,7 +14,8 @@ const ProductInfo = () => {
   const [sizeError, setSizeError] = useState(false)
   const [shake, setShake] = useState(false)
 
-  const cart = useSelector((state) => state.product.cart)
+  const cart = useSelector((state) => state.cart.cart)
+
   const dispatch = useDispatch()
   const itemInCart = cart.find(
     (item) =>
@@ -59,13 +58,13 @@ const ProductInfo = () => {
         {product.sale ? (
           <div className="flex gap-2.5">
             <p className="subtitle text-3xl sm:text-3xl">
-              ${Math.round(product.price * ((100 - product.sale) / 100))}
+              ${product.actualPrice}
             </p>
             <p className="subtitle text-xl text-black/40 line-through sm:text-2xl">
               ${product.price}
             </p>
             <p className="inline content-center rounded-full bg-[rgba(255,51,51,0.1)] px-3 py-1.5 text-[#FF3333]">
-              -{product.sale}%
+              -{product.sale * 100}%
             </p>
           </div>
         ) : (

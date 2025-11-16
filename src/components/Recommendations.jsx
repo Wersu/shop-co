@@ -7,7 +7,6 @@ const Recommendations = () => {
   const indexes = useSelector((state) => state.product.product.recommendations)
   let products = useSelector((state) => state.product.products)
   products = products.filter((product) => indexes.includes(product.id))
-  console.log(products)
   useScrollAnimation()
   // let products = product.recommendations
 
