@@ -1,8 +1,11 @@
 import React from 'react'
 import RatingStars from './RatingStar'
 import { Link } from 'react-router-dom'
+// import { useDispatch } from 'react-redux'
+// import { addToCart } from '../store/productSlice'
 
 const ProductCard = ({ product }) => {
+  // const dispatch = useDispatch()
   return (
     <div>
       <Link
@@ -34,20 +37,20 @@ const ProductCard = ({ product }) => {
             {product.sale ? (
               <div className="flex gap-2.5">
                 <p className="subtitle text-xl sm:text-2xl">
-                  ${Math.round(product.price * ((100 - product.sale) / 100))}
+                  ${product.actualPrice}
                 </p>
                 <p className="subtitle text-xl text-black/40 line-through sm:text-2xl">
                   ${product.price}
                 </p>
                 <p className="inline content-center rounded-full bg-[rgba(255,51,51,0.1)] px-3 py-1.5 text-xs text-[#FF3333]">
-                  -{product.sale}%
+                  -{product.sale * 100}%
                 </p>
               </div>
             ) : (
               <p className="subtitle text-xl sm:text-2xl">${product.price}</p>
             )}
           </div>
-          <button className="mr-3.5 flex h-10 w-10 items-center justify-center rounded-full bg-[#F0F0F0] text-black transition hover:bg-black hover:text-white">
+          {/* <button className="mr-3.5 flex h-10 w-10 items-center justify-center rounded-full bg-[#F0F0F0] text-black transition hover:bg-black hover:text-white">
             <svg
               width="20"
               height="20"
@@ -60,7 +63,7 @@ const ProductCard = ({ product }) => {
                 fill="currentColor"
               />
             </svg>
-          </button>
+          </button> */}
         </div>
       </div>
     </div>

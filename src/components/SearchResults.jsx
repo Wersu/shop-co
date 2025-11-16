@@ -69,9 +69,7 @@ const SearchResults = () => {
                 </p>
                 <div className="mt-1 flex items-center gap-2">
                   <span className="text-sm font-semibold">
-                    $
-                    {product.price -
-                      (product.price * (product.sale || 0)) / 100}
+                    ${product.actualPrice}
                   </span>
                   {product.sale && (
                     <span className="text-xs text-red-600 line-through">

@@ -137,9 +137,9 @@ function Header() {
             aria-expanded={openSidenav}
             aria-label="Open menu"
           >
-            <span className="block h-[2px] w-[18px] rounded-2xl bg-black"></span>
-            <span className="block h-[2px] w-[18px] rounded-2xl bg-black"></span>
-            <span className="block h-[2px] w-[18px] rounded-2xl bg-black"></span>
+            <span className="block h-0.5 w-[18px] rounded-2xl bg-black"></span>
+            <span className="block h-0.5 w-[18px] rounded-2xl bg-black"></span>
+            <span className="block h-0.5 w-[18px] rounded-2xl bg-black"></span>
           </button>
           <Link
             to="/"
@@ -243,7 +243,7 @@ function Header() {
             <form
               action=""
               onSubmit={handleSearchSubmit}
-              className="flex gap-3 rounded-full border border-transparent bg-neutral-100 px-4 py-3 text-black/100"
+              className="flex gap-3 rounded-full border border-transparent bg-neutral-100 px-4 py-3 text-black"
             >
               <button
                 className="text-black/40 hover:text-black"
@@ -414,7 +414,7 @@ function Header() {
           <form
             action=""
             onSubmit={handleSearchSubmit}
-            className="flex w-[80%] gap-3 rounded-full border border-transparent bg-neutral-100 px-4 py-3 text-black/100"
+            className="flex w-[80%] gap-3 rounded-full border border-transparent bg-neutral-100 px-4 py-3 text-black"
           >
             <button
               className="text-black/40 hover:text-black"
@@ -473,9 +473,7 @@ function Header() {
                   </p>
                   <div className="mt-1 flex items-center gap-2">
                     <span className="text-sm font-semibold">
-                      $
-                      {product.price -
-                        (product.price * (product.sale || 0)) / 100}
+                      ${product.actualPrice}
                     </span>
                     {product.sale && (
                       <span className="text-xs text-red-600 line-through">
