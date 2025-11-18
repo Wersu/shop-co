@@ -27,52 +27,88 @@ const Cart = () => {
       <Breadcrumbs paths={breadcrumbs} />
 
       {cart.length === 0 ? (
-        <h1 className="title mb-6 w-full text-[40px] uppercase">
+        <h1 className="title mb-4 w-full px-2 text-[32px] uppercase md:mb-6 lg:text-[40px]">
           Your shopping bag is empty.
         </h1>
       ) : (
-        <div className="">
-          <h1 className="title mb-6 text-[40px] uppercase">Your cart</h1>
-          <div className="flex gap-5">
-            <div className="w-full flex-1 rounded-[20px] border border-black/10 px-6 py-5 *:not-first:pt-6 *:not-last:border-b *:not-last:pb-6">
+        <div className="px-2">
+          <h1 className="title mb-4 text-[32px] uppercase md:mb-6 lg:text-[40px]">
+            Your cart
+          </h1>
+          <div className="flex flex-col gap-5 lg:flex-row">
+            <div className="w-full flex-1 rounded-[20px] border border-black/10 px-4 py-3 *:not-first:pt-4 *:not-last:border-b *:not-last:pb-4 md:px-6 md:py-5 md:*:not-first:pt-6 md:*:not-last:pb-6">
               {cart.map((product, index) => (
+                // <div
+                //   className="flex justify-between gap-5 border-black/10"
+                //   key={index}
+                // >
                 <div
-                  className="flex justify-between gap-5 border-black/10"
+                  className="flex flex-row gap-4 border-black/10"
                   key={index}
                 >
-                  <div className="flex gap-4">
-                    <img
-                      src={product.images[product.colors[0]][0]}
-                      alt={product.title}
-                      className="h-31 w-31 rounded object-cover"
-                    />
+                  <img
+                    src={product.images[product.colors[0]][0]}
+                    alt={product.title}
+                    className="h-23 w-23 shrink-0 rounded-xl object-cover sm:h-31 sm:w-31"
+                  />
 
-                    <div className="">
-                      <h3 className="subtitle mb-0.5 text-[20px]">
+                  <div className="flex-1">
+                    <div className="flex justify-between gap-2">
+                      <h3 className="subtitle mb-0.5 text-[16px] md:text-[20px]">
                         {product.title}
                       </h3>
-                      <p className="mb-1 text-sm">
-                        Size:{' '}
-                        <span className="text-black/60">
-                          {product.selectedSize}
-                        </span>
-                      </p>
-                      <p className="mb-4 text-sm">
-                        Color:{' '}
-                        <span className="text-black/60">
-                          {product.selectedColor}
-                        </span>
-                      </p>
+                      <button
+                        className=""
+                        onClick={() =>
+                          dispatch(
+                            removeAllFromCart({
+                              id: product.id,
+                              selectedColor: product.selectedColor,
+                              selectedSize: product.selectedSize,
+                            })
+                          )
+                        }
+                      >
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M20.25 4.5H16.5V3.75C16.5 3.15326 16.2629 2.58097 15.841 2.15901C15.419 1.73705 14.8467 1.5 14.25 1.5H9.75C9.15326 1.5 8.58097 1.73705 8.15901 2.15901C7.73705 2.58097 7.5 3.15326 7.5 3.75V4.5H3.75C3.55109 4.5 3.36032 4.57902 3.21967 4.71967C3.07902 4.86032 3 5.05109 3 5.25C3 5.44891 3.07902 5.63968 3.21967 5.78033C3.36032 5.92098 3.55109 6 3.75 6H4.5V19.5C4.5 19.8978 4.65804 20.2794 4.93934 20.5607C5.22064 20.842 5.60218 21 6 21H18C18.3978 21 18.7794 20.842 19.0607 20.5607C19.342 20.2794 19.5 19.8978 19.5 19.5V6H20.25C20.4489 6 20.6397 5.92098 20.7803 5.78033C20.921 5.63968 21 5.44891 21 5.25C21 5.05109 20.921 4.86032 20.7803 4.71967C20.6397 4.57902 20.4489 4.5 20.25 4.5ZM10.5 15.75C10.5 15.9489 10.421 16.1397 10.2803 16.2803C10.1397 16.421 9.94891 16.5 9.75 16.5C9.55109 16.5 9.36032 16.421 9.21967 16.2803C9.07902 16.1397 9 15.9489 9 15.75V9.75C9 9.55109 9.07902 9.36032 9.21967 9.21967C9.36032 9.07902 9.55109 9 9.75 9C9.94891 9 10.1397 9.07902 10.2803 9.21967C10.421 9.36032 10.5 9.55109 10.5 9.75V15.75ZM15 15.75C15 15.9489 14.921 16.1397 14.7803 16.2803C14.6397 16.421 14.4489 16.5 14.25 16.5C14.0511 16.5 13.8603 16.421 13.7197 16.2803C13.579 16.1397 13.5 15.9489 13.5 15.75V9.75C13.5 9.55109 13.579 9.36032 13.7197 9.21967C13.8603 9.07902 14.0511 9 14.25 9C14.4489 9 14.6397 9.07902 14.7803 9.21967C14.921 9.36032 15 9.55109 15 9.75V15.75ZM15 4.5H9V3.75C9 3.55109 9.07902 3.36032 9.21967 3.21967C9.36032 3.07902 9.55109 3 9.75 3H14.25C14.4489 3 14.6397 3.07902 14.7803 3.21967C14.921 3.36032 15 3.55109 15 3.75V4.5Z"
+                            fill="#FF3333"
+                          />
+                        </svg>
+                      </button>
+                    </div>
 
+                    <p className="mb-1 text-sm">
+                      Size:{' '}
+                      <span className="text-black/60">
+                        {product.selectedSize}
+                      </span>
+                    </p>
+                    <p className="mb-4 text-sm">
+                      Color:{' '}
+                      <span className="text-black/60">
+                        {product.selectedColor}
+                      </span>
+                    </p>
+
+                    <div className="flex items-center justify-between gap-2">
                       {product.sale ? (
                         <div className="flex gap-2.5">
                           <p className="subtitle text-xl sm:text-2xl">
                             ${product.actualPrice}
                           </p>
-                          <p className="subtitle text-xl text-black/40 line-through sm:text-2xl">
+                          <p className="subtitle hidden text-xl text-black/40 line-through sm:text-2xl md:block">
                             ${product.price}
                           </p>
-                          <p className="inline content-center rounded-full bg-[rgba(255,51,51,0.1)] px-3 py-1.5 text-xs text-[#FF3333]">
+                          <p
+                            className={`hidden content-center rounded-full bg-[rgba(255,51,51,0.1)] px-3 py-1.5 text-xs text-[#FF3333] md:inline`}
+                          >
                             -{product.sale * 100}%
                           </p>
                         </div>
@@ -81,125 +117,111 @@ const Cart = () => {
                           ${product.price}
                         </p>
                       )}
-                    </div>
-                  </div>
-                  <div className="flex flex-col items-end justify-between">
-                    <button
-                      className=""
-                      onClick={() =>
-                        dispatch(
-                          removeAllFromCart({
-                            id: product.id,
-                            selectedColor: product.selectedColor,
-                            selectedSize: product.selectedSize,
-                          })
-                        )
-                      }
-                    >
-                      <svg
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M20.25 4.5H16.5V3.75C16.5 3.15326 16.2629 2.58097 15.841 2.15901C15.419 1.73705 14.8467 1.5 14.25 1.5H9.75C9.15326 1.5 8.58097 1.73705 8.15901 2.15901C7.73705 2.58097 7.5 3.15326 7.5 3.75V4.5H3.75C3.55109 4.5 3.36032 4.57902 3.21967 4.71967C3.07902 4.86032 3 5.05109 3 5.25C3 5.44891 3.07902 5.63968 3.21967 5.78033C3.36032 5.92098 3.55109 6 3.75 6H4.5V19.5C4.5 19.8978 4.65804 20.2794 4.93934 20.5607C5.22064 20.842 5.60218 21 6 21H18C18.3978 21 18.7794 20.842 19.0607 20.5607C19.342 20.2794 19.5 19.8978 19.5 19.5V6H20.25C20.4489 6 20.6397 5.92098 20.7803 5.78033C20.921 5.63968 21 5.44891 21 5.25C21 5.05109 20.921 4.86032 20.7803 4.71967C20.6397 4.57902 20.4489 4.5 20.25 4.5ZM10.5 15.75C10.5 15.9489 10.421 16.1397 10.2803 16.2803C10.1397 16.421 9.94891 16.5 9.75 16.5C9.55109 16.5 9.36032 16.421 9.21967 16.2803C9.07902 16.1397 9 15.9489 9 15.75V9.75C9 9.55109 9.07902 9.36032 9.21967 9.21967C9.36032 9.07902 9.55109 9 9.75 9C9.94891 9 10.1397 9.07902 10.2803 9.21967C10.421 9.36032 10.5 9.55109 10.5 9.75V15.75ZM15 15.75C15 15.9489 14.921 16.1397 14.7803 16.2803C14.6397 16.421 14.4489 16.5 14.25 16.5C14.0511 16.5 13.8603 16.421 13.7197 16.2803C13.579 16.1397 13.5 15.9489 13.5 15.75V9.75C13.5 9.55109 13.579 9.36032 13.7197 9.21967C13.8603 9.07902 14.0511 9 14.25 9C14.4489 9 14.6397 9.07902 14.7803 9.21967C14.921 9.36032 15 9.55109 15 9.75V15.75ZM15 4.5H9V3.75C9 3.55109 9.07902 3.36032 9.21967 3.21967C9.36032 3.07902 9.55109 3 9.75 3H14.25C14.4489 3 14.6397 3.07902 14.7803 3.21967C14.921 3.36032 15 3.55109 15 3.75V4.5Z"
-                          fill="#FF3333"
-                        />
-                      </svg>
-                    </button>
 
-                    <div
-                      className={
-                        'flex w-[126px] items-center justify-between rounded-full bg-[#F0F0F0] px-5 py-3 transition-all'
-                      }
-                    >
-                      <button
-                        onClick={() =>
-                          dispatch(
-                            removeFromCart({
-                              id: product.id,
-                              selectedColor: product.selectedColor,
-                              selectedSize: product.selectedSize,
-                            })
-                          )
+                      <div
+                        className={
+                          'flex w-[90px] items-center justify-between rounded-full bg-[#F0F0F0] px-3 py-2 transition-all md:w-[126px] md:px-5 md:py-3'
                         }
-                        className="hover:scale-120"
                       >
-                        <svg
-                          width="20"
-                          height="20"
-                          viewBox="0 0 20 20"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
+                        <button
+                          onClick={() =>
+                            dispatch(
+                              removeFromCart({
+                                id: product.id,
+                                selectedColor: product.selectedColor,
+                                selectedSize: product.selectedSize,
+                              })
+                            )
+                          }
+                          className="hover:scale-120"
                         >
-                          <path
-                            d="M17.8125 10C17.8125 10.2486 17.7137 10.4871 17.5379 10.6629C17.3621 10.8387 17.1236 10.9375 16.875 10.9375H3.125C2.87636 10.9375 2.6379 10.8387 2.46209 10.6629C2.28627 10.4871 2.1875 10.2486 2.1875 10C2.1875 9.75136 2.28627 9.5129 2.46209 9.33709C2.6379 9.16127 2.87636 9.0625 3.125 9.0625H16.875C17.1236 9.0625 17.3621 9.16127 17.5379 9.33709C17.7137 9.5129 17.8125 9.75136 17.8125 10Z"
-                            fill="black"
-                          />
-                        </svg>
-                      </button>
+                          <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 20 20"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            // className="h-[15px] w-[15px] md:h-[20px] md:w-[20px]"
+                          >
+                            <path
+                              d="M17.8125 10C17.8125 10.2486 17.7137 10.4871 17.5379 10.6629C17.3621 10.8387 17.1236 10.9375 16.875 10.9375H3.125C2.87636 10.9375 2.6379 10.8387 2.46209 10.6629C2.28627 10.4871 2.1875 10.2486 2.1875 10C2.1875 9.75136 2.28627 9.5129 2.46209 9.33709C2.6379 9.16127 2.87636 9.0625 3.125 9.0625H16.875C17.1236 9.0625 17.3621 9.16127 17.5379 9.33709C17.7137 9.5129 17.8125 9.75136 17.8125 10Z"
+                              fill="black"
+                            />
+                          </svg>
+                        </button>
 
-                      <p className="">{product.quantity}</p>
+                        <p className="text-[14px] md:text-[16px]">
+                          {product.quantity}
+                        </p>
 
-                      <button
-                        onClick={() =>
-                          dispatch(
-                            addToCart({
-                              ...product,
-                              selectedColor: product.selectedColor,
-                              selectedSize: product.selectedSize,
-                              quantity: 1,
-                            })
-                          )
-                        }
-                        className="hover:scale-120"
-                      >
-                        <svg
-                          width="20"
-                          height="20"
-                          viewBox="0 0 20 20"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
+                        <button
+                          onClick={() =>
+                            dispatch(
+                              addToCart({
+                                ...product,
+                                selectedColor: product.selectedColor,
+                                selectedSize: product.selectedSize,
+                                quantity: 1,
+                              })
+                            )
+                          }
+                          className="hover:scale-120"
                         >
-                          <path
-                            d="M17.8125 10C17.8125 10.2486 17.7137 10.4871 17.5379 10.6629C17.3621 10.8387 17.1236 10.9375 16.875 10.9375H10.9375V16.875C10.9375 17.1236 10.8387 17.3621 10.6629 17.5379C10.4871 17.7137 10.2486 17.8125 10 17.8125C9.75136 17.8125 9.5129 17.7137 9.33709 17.5379C9.16127 17.3621 9.0625 17.1236 9.0625 16.875V10.9375H3.125C2.87636 10.9375 2.6379 10.8387 2.46209 10.6629C2.28627 10.4871 2.1875 10.2486 2.1875 10C2.1875 9.75136 2.28627 9.5129 2.46209 9.33709C2.6379 9.16127 2.87636 9.0625 3.125 9.0625H9.0625V3.125C9.0625 2.87636 9.16127 2.6379 9.33709 2.46209C9.5129 2.28627 9.75136 2.1875 10 2.1875C10.2486 2.1875 10.4871 2.28627 10.6629 2.46209C10.8387 2.6379 10.9375 2.87636 10.9375 3.125V9.0625H16.875C17.1236 9.0625 17.3621 9.16127 17.5379 9.33709C17.7137 9.5129 17.8125 9.75136 17.8125 10Z"
-                            fill="black"
-                          />
-                        </svg>
-                      </button>
+                          <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 20 20"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M17.8125 10C17.8125 10.2486 17.7137 10.4871 17.5379 10.6629C17.3621 10.8387 17.1236 10.9375 16.875 10.9375H10.9375V16.875C10.9375 17.1236 10.8387 17.3621 10.6629 17.5379C10.4871 17.7137 10.2486 17.8125 10 17.8125C9.75136 17.8125 9.5129 17.7137 9.33709 17.5379C9.16127 17.3621 9.0625 17.1236 9.0625 16.875V10.9375H3.125C2.87636 10.9375 2.6379 10.8387 2.46209 10.6629C2.28627 10.4871 2.1875 10.2486 2.1875 10C2.1875 9.75136 2.28627 9.5129 2.46209 9.33709C2.6379 9.16127 2.87636 9.0625 3.125 9.0625H9.0625V3.125C9.0625 2.87636 9.16127 2.6379 9.33709 2.46209C9.5129 2.28627 9.75136 2.1875 10 2.1875C10.2486 2.1875 10.4871 2.28627 10.6629 2.46209C10.8387 2.6379 10.9375 2.87636 10.9375 3.125V9.0625H16.875C17.1236 9.0625 17.3621 9.16127 17.5379 9.33709C17.7137 9.5129 17.8125 9.75136 17.8125 10Z"
+                              fill="black"
+                            />
+                          </svg>
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
               ))}
             </div>
 
-            <div className="flex h-fit w-[500px] grow-0 flex-col gap-6 rounded-[20px] border border-black/10 px-6 py-5">
+            <div className="flex h-fit w-full grow-0 flex-col gap-6 rounded-[20px] border border-black/10 px-6 py-5 lg:w-[500px]">
               <h2 className="subtitle text-2xl">Order Summary</h2>
 
               <div className="">
-                <div className="flex flex-col gap-5 border-b border-black/10 pb-5">
+                <div className="flex flex-col gap-3 border-b border-black/10 pb-5 sm:gap-5">
                   <div className="flex justify-between gap-4">
-                    <p className="text-[20px] text-black/60">Subtotal</p>
-                    <p className="subtitle text-[20px]">${subtotal}</p>
+                    <p className="text-[16px] text-black/60 sm:text-[20px]">
+                      Subtotal
+                    </p>
+                    <p className="subtitle text-[16px] sm:text-[20px]">
+                      ${subtotal}
+                    </p>
                   </div>
                   <div className="flex justify-between gap-4">
-                    <p className="text-[20px] text-black/60">
+                    <p className="text-[16px] text-black/60 sm:text-[20px]">
                       Discount (-{discount}%)
                     </p>
-                    <p className="subtitle text-[20px] text-[#FF3333]">
+                    <p className="subtitle text-[16px] text-[#FF3333] sm:text-[20px]">
                       -${discountPrice}
                     </p>
                   </div>
                   <div className="flex justify-between gap-4">
-                    <p className="text-[20px] text-black/60">Delivery Fee</p>
-                    <p className="subtitle text-[20px]">${deliveryPrice}</p>
+                    <p className="text-[16px] text-black/60 sm:text-[20px]">
+                      Delivery Fee
+                    </p>
+                    <p className="subtitle text-[16px] sm:text-[20px]">
+                      ${deliveryPrice}
+                    </p>
                   </div>
                 </div>
                 <div className="flex justify-between pt-5">
-                  <p className="text-[20px]">Total</p>
-                  <p className="subtitle text-[24px]">${total}</p>
+                  <p className="text-[16px] sm:text-[20px]">Total</p>
+                  <p className="subtitle text-[20px] sm:text-[24px]">
+                    ${total}
+                  </p>
                 </div>
               </div>
 
@@ -229,7 +251,7 @@ const Cart = () => {
                   Apply
                 </button>
               </div>
-              <button className="flex w-full items-center justify-center gap-3.5 rounded-full bg-black p-4 text-center text-white">
+              <button className="flex w-full items-center justify-center gap-3.5 rounded-full bg-black p-4 text-center text-white sm:w-[300px] lg:w-full">
                 Go to Checkout
                 <svg
                   width="24"
