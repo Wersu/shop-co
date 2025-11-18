@@ -6,7 +6,7 @@ const DressStyle = () => {
   useScrollAnimation()
   return (
     <section className="scroll-hidden px-4">
-      <div className="container mx-auto max-w-7xl rounded-2xl bg-[#F0F0F0] px-6 pt-10 pb-7 lg:px-16 lg:pt-18 lg:pb-19">
+      <div className="container mx-auto rounded-2xl bg-[#F0F0F0] px-6 pt-10 pb-7 lg:px-16 lg:pt-18 lg:pb-19 2xl:max-w-7xl">
         <h2 className="title title-section mb-7 text-center text-5xl md:mb-16">
           BROWSE BY DRESS STYLE
         </h2>

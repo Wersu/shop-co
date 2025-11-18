@@ -5,7 +5,7 @@ const Brands = () => {
   useScrollAnimation()
   return (
     <div className="bg-black">
-      <div className="container mx-auto flex max-w-7xl flex-wrap justify-center gap-x-8 gap-y-5 px-3 py-11 lg:justify-between">
+      <div className="container mx-auto flex flex-wrap justify-center gap-x-8 gap-y-5 px-3 py-11 lg:justify-between 2xl:max-w-7xl">
         <svg
           width="167"
           height="34"

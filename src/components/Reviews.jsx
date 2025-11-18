@@ -86,7 +86,7 @@ const Reviews = () => {
 
   return (
     <section className="reviews scroll-hidden relative pt-20">
-      <div className="container mx-auto mb-6 flex max-w-7xl items-center justify-between px-4">
+      <div className="container mx-auto mb-6 flex items-center justify-between px-4 2xl:max-w-7xl">
         <h2 className="title text-3xl font-black">OUR HAPPY CUSTOMERS</h2>
         <div className="flex gap-2">
           <button

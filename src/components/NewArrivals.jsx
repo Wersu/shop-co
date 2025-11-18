@@ -11,7 +11,7 @@ const NewArrivals = () => {
   newProducts.sort(() => 0.5 - Math.random())
 
   return (
-    <section className="scroll-hidden mx-auto flex max-w-7xl flex-col items-center gap-13 border-b-1 border-black/10 pt-18 pb-16 sm:gap-8 sm:pt-12 sm:pb-10 xl:container">
+    <section className="scroll-hidden mx-auto flex flex-col items-center gap-13 border-b-1 border-black/10 pt-18 pb-16 sm:gap-8 sm:pt-12 sm:pb-10 xl:container 2xl:max-w-7xl">
       <h2 className="title title-section text-5xl">NEW ARRIVALS</h2>
       <div className="no-scrollbar grid grid-cols-4 gap-5 overflow-auto max-xl:flex max-xl:w-full max-xl:max-w-full max-xl:pl-5 max-sm:[&>*]:min-w-[250px] sm:[&>*]:min-w-[300px]">
         {newProducts.slice(0, 4).map((product) => {

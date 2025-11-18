@@ -12,12 +12,16 @@ function Header() {
   let [openDropdown, setOpenDropdown] = useState(false)
   let [openSidenav, setOpenSidenav] = useState(false)
   let [openSearch, setOpenSearch] = useState(false)
+  let [countOfCart, setCountOfCart] = useState(0)
+
   const [localSearchQuery, setLocalSearchQuery] = useState('')
 
   const dispatch = useDispatch()
   const { filteredProducts, searchQuery } = useSelector(
     (state) => state.product
   )
+
+  const count = useSelector((state) => state.cart.count)
 
   useLockBody(openSidenav)
   useLockBody(openSearch)
@@ -62,6 +66,15 @@ function Header() {
     dispatch(setSearchQuery(localSearchQuery))
     dispatch(searchProducts(localSearchQuery))
   }
+
+  useEffect(() => {
+    setTimeout(() => {
+      setCountOfCart(count)
+    }, 1000)
+    return () => {
+      clearTimeout()
+    }
+  }, [count])
 
   useEffect(() => {
     return () => {
@@ -126,7 +139,7 @@ function Header() {
 
   return (
     <header className="top:0 fixed z-50 w-full bg-white py-6 sm:static">
-      <div className="container mx-auto flex max-w-7xl items-center justify-between gap-6 px-2">
+      <div className="container mx-auto flex items-center justify-between gap-6 px-2 2xl:max-w-7xl">
         <div className="flex items-center gap-4 sm:gap-6">
           <button
             className="flex flex-col items-center gap-1 px-[3px] py-[5px] sm:hidden"
@@ -300,7 +313,7 @@ function Header() {
               </svg>
             </button>
             <Link
-              className="inline-block hover:text-black/60"
+              className="relative inline-block hover:text-black/60"
               to="/cart"
               aria-label="Cart"
             >
@@ -317,6 +330,11 @@ function Header() {
                   fill="currentColor"
                 />
               </svg>
+              <p
+                className={`absolute -top-2.5 -right-2.5 rounded-full bg-[#FF3333] px-1 text-[12px] text-white ${countOfCart ? 'block' : 'hidden'}`}
+              >
+                {countOfCart}
+              </p>
             </Link>
             <button
               className="hover:text-black/60"

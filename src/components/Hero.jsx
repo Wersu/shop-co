@@ -6,7 +6,7 @@ const Hero = () => {
   // useScrollAnimation()
   return (
     <section className="relative overflow-hidden bg-[#f0f0f0] sm:mt-0">
-      <div className="relative container mx-auto max-w-7xl px-2 pb-[500px] lg:pb-0">
+      <div className="relative container mx-auto px-2 pb-[500px] lg:pb-0 2xl:max-w-7xl">
         <div className="relative z-10 flex flex-col gap-8 pt-10 md:pt-28 lg:py-28">
           <h1 className="title text-[36px]/[34px] capitalize sm:text-[45px]/[50px] md:text-[53px]/[58px] lg:max-w-1/2 lg:text-6xl">
             Find clothes that matches your style
