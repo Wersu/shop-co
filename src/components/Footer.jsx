@@ -6,7 +6,7 @@ const Footer = () => {
     <>
       <NewsletterSignup />
       <footer className="bg-[#F0F0F0] pt-44 lg:pt-36">
-        <div className="container mx-auto max-w-7xl px-2">
+        <div className="container mx-auto px-2 2xl:max-w-7xl">
           <div className="flex flex-col gap-9 border-b-1 border-black/10 pb-13 lg:flex-row">
             <div className="flex flex-col lg:max-w-[248px]">
               <a

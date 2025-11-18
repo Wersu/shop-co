@@ -19,31 +19,19 @@ const Cart = () => {
   const deliveryPrice = useSelector((state) => state.cart.deliveryPrice)
   const discount = useSelector((state) => state.cart.discount)
   const dispatch = useDispatch()
-  // let subtotal = 0
-  // const deliveryPrice = 15
-  // const discount = 20
-  // let discountPrice = 0
-  // let total = 0
 
-  // cart.map((product) => {
-  //   let productPrice = product.sale
-  //     ? product.price - (product.price * product.sale) / 100
-  //     : product.price
-  //   subtotal += productPrice * product.quantity
-  // })
   const discountPrice = Math.round((subtotal * discount) / 100)
-  // total = subtotal - discountPrice + deliveryPrice
 
   return (
-    <section className="container mx-auto max-w-7xl">
+    <section className="container mx-auto 2xl:max-w-7xl">
       <Breadcrumbs paths={breadcrumbs} />
 
       {cart.length === 0 ? (
-        <h1 className="title mb-6 text-[40px] uppercase">
+        <h1 className="title mb-6 w-full text-[40px] uppercase">
           Your shopping bag is empty.
         </h1>
       ) : (
-        <>
+        <div className="">
           <h1 className="title mb-6 text-[40px] uppercase">Your cart</h1>
           <div className="flex gap-5">
             <div className="w-full flex-1 rounded-[20px] border border-black/10 px-6 py-5 *:not-first:pt-6 *:not-last:border-b *:not-last:pb-6">
@@ -258,7 +246,7 @@ const Cart = () => {
               </button>
             </div>
           </div>
-        </>
+        </div>
       )}
     </section>
   )
