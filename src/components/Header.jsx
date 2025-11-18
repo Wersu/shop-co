@@ -12,12 +12,16 @@ function Header() {
   let [openDropdown, setOpenDropdown] = useState(false)
   let [openSidenav, setOpenSidenav] = useState(false)
   let [openSearch, setOpenSearch] = useState(false)
+  let [countOfCart, setCountOfCart] = useState(0)
+
   const [localSearchQuery, setLocalSearchQuery] = useState('')
 
   const dispatch = useDispatch()
   const { filteredProducts, searchQuery } = useSelector(
     (state) => state.product
   )
+
+  const count = useSelector((state) => state.cart.count)
 
   useLockBody(openSidenav)
   useLockBody(openSearch)
@@ -62,6 +66,15 @@ function Header() {
     dispatch(setSearchQuery(localSearchQuery))
     dispatch(searchProducts(localSearchQuery))
   }
+
+  useEffect(() => {
+    setTimeout(() => {
+      setCountOfCart(count)
+    }, 1000)
+    return () => {
+      clearTimeout()
+    }
+  }, [count])
 
   useEffect(() => {
     return () => {
@@ -300,7 +313,7 @@ function Header() {
               </svg>
             </button>
             <Link
-              className="inline-block hover:text-black/60"
+              className="relative inline-block hover:text-black/60"
               to="/cart"
               aria-label="Cart"
             >
@@ -317,6 +330,11 @@ function Header() {
                   fill="currentColor"
                 />
               </svg>
+              <p
+                className={`absolute -top-2.5 -right-2.5 rounded-full bg-[#FF3333] px-1 text-[12px] text-white ${countOfCart ? 'block' : 'hidden'}`}
+              >
+                {countOfCart}
+              </p>
             </Link>
             <button
               className="hover:text-black/60"
