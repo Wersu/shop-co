@@ -8,13 +8,13 @@ const ProductGallery = () => {
   const images = product.images
 
   return (
-    <div className="flex flex-1 gap-3.5">
-      <div className="flex max-w-[152px] flex-col gap-3.5">
+    <div className="flex flex-1 flex-col-reverse gap-3.5 xl:flex-row">
+      <div className="flex gap-3.5 xl:max-w-[152px] xl:flex-col">
         {images[selectedColor].map((item, idx) => {
           return (
             <button
               key={idx}
-              className={`overflow-hidden rounded-3xl border ${indexImg === idx ? 'border-black' : 'border-transparent'}`}
+              className={`block aspect-square w-full overflow-hidden rounded-3xl border xl:h-auto ${indexImg === idx ? 'border-black' : 'border-transparent hover:border-black/30'}`}
               onClick={() => {
                 setIndexImg(idx)
               }}
@@ -22,17 +22,17 @@ const ProductGallery = () => {
               <img
                 src={item}
                 alt={product.title}
-                className="block overflow-hidden rounded-3xl bg-[#F0EEED] object-cover"
+                className="block h-full w-full overflow-hidden rounded-3xl bg-[#F0EEED] object-cover"
               />
             </button>
           )
         })}
       </div>
-      <div className="overflow-hidden rounded-2xl bg-[#F0EEED]">
+      <div className="aspect-square w-full overflow-hidden rounded-2xl bg-[#F0EEED]">
         <img
           src={images[selectedColor][indexImg]}
           alt=""
-          className="block h-full w-auto object-cover"
+          className="block h-full w-full object-contain object-center"
         />
       </div>
     </div>

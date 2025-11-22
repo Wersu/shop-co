@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from 'react'
 import RatingStars from './RatingStar'
 import { useSelector } from 'react-redux'
 import { AnimatePresence } from 'framer-motion'
+// eslint-disable-next-line no-unused-vars
+import { motion } from 'framer-motion'
 
 const ReviewList = () => {
   const [visibleCard, setVisibleCard] = useState(4)
@@ -48,12 +50,12 @@ const ReviewList = () => {
 
   return (
     <div className="flex flex-col content-center">
-      <div className="flex items-center justify-between py-6">
+      <div className="flex flex-col justify-between gap-3 py-6 sm:flex-row sm:items-center">
         <div className="flex items-baseline gap-2">
-          <h2 className="text-2xl">All Reviews</h2>
+          <h2 className="text-xl sm:text-2xl">All Reviews</h2>
           <span className="text-black/60">({reviews.length})</span>
         </div>
-        <div className="flex items-center gap-[10px]">
+        <div className="flex items-center gap-2.5">
           {/* <button className="rounded-full bg-[#F0F0F0] px-3 py-3 hover:bg-black hover:text-white">
             <svg
               width="24"
@@ -134,7 +136,7 @@ const ReviewList = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-[20px]">
+      <div className="grid grid-cols-1 gap-[20px] sm:grid-cols-2">
         {sortedReviews.slice(0, visibleCard).map((reviews, idx) => (
           <div className="reviews-card" key={idx}>
             <div className="flex h-full flex-col rounded-2xl border border-black/10 bg-white p-6 px-7 pt-8 max-[350px]:p-3 max-[350px]:px-3 max-[350px]:pt-5">
