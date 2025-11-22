@@ -46,8 +46,10 @@ const ProductInfo = () => {
 
   return (
     <div>
-      <div className="flex flex-col gap-3.5 pb-6">
-        <h1 className="title text-[40px]">{product.title}</h1>
+      <div className="flex flex-col gap-2 pb-3 sm:gap-3.5 sm:pb-6">
+        <h1 className="title text-[26px] sm:text-[32px] md:text-[40px]">
+          {product.title}
+        </h1>
         <div className="flex gap-3">
           <RatingStars rating={product.rating} />
           <p className="text-sm">
@@ -56,24 +58,24 @@ const ProductInfo = () => {
           </p>
         </div>
         {product.sale ? (
-          <div className="flex gap-2.5">
-            <p className="subtitle text-3xl sm:text-3xl">
+          <div className="flex items-center gap-2.5">
+            <p className="subtitle text-2xl sm:text-3xl">
               ${product.actualPrice}
             </p>
             <p className="subtitle text-xl text-black/40 line-through sm:text-2xl">
               ${product.price}
             </p>
-            <p className="inline content-center rounded-full bg-[rgba(255,51,51,0.1)] px-3 py-1.5 text-[#FF3333]">
+            <p className="inline content-center rounded-full bg-[rgba(255,51,51,0.1)] px-1.5 py-1 text-xs text-[#FF3333] sm:px-3 sm:py-1.5 sm:text-base">
               -{product.sale * 100}%
             </p>
           </div>
         ) : (
           <p className="subtitle text-xl sm:text-3xl">${product.price}</p>
         )}
-        <p className="mt-1.5 text-black/60">${product.description}</p>
+        <p className="text-black/60 sm:mt-1.5">{product.description}</p>
       </div>
 
-      <div className="border-y border-black/10 py-6">
+      <div className="border-y border-black/10 py-3 sm:py-6">
         <p className="mb-4 text-black/60">Select Colors</p>
         <ul className="flex gap-4">
           {product.colors.map((color) => {
@@ -104,7 +106,7 @@ const ProductInfo = () => {
         </ul>
       </div>
 
-      <div className="border-b border-black/10 py-6">
+      <div className="border-b border-black/10 py-3 sm:py-6">
         <motion.p
           className={'mb-4 ' + (sizeError ? 'text-red-600' : 'text-black/60')}
           animate={shake ? { x: [-8, 8, -6, 6, -4, 4, 0] } : { x: 0 }}
@@ -112,15 +114,15 @@ const ProductInfo = () => {
         >
           Choose Size
         </motion.p>
-        <ul className="flex gap-4">
+        <ul className="flex flex-wrap gap-4">
           {product.sizes.map((size) => {
             return (
               <li
                 key={size}
                 className={
                   selectedSize === size
-                    ? 'cursor-pointer rounded-full bg-black px-6 py-3 text-white'
-                    : 'cursor-pointer rounded-full border border-[#F0F0F0] bg-[#F0F0F0] px-6 py-3 text-black/60 hover:border-black/60'
+                    ? 'cursor-pointer rounded-full bg-black px-5 py-2 text-white sm:px-6 sm:py-3'
+                    : 'cursor-pointer rounded-full border border-[#F0F0F0] bg-[#F0F0F0] px-5 py-2 text-black/60 hover:border-black/60 sm:px-6 sm:py-3'
                 }
                 onClick={() => dispatch(setSize(size))}
               >
@@ -130,11 +132,11 @@ const ProductInfo = () => {
           })}
         </ul>
       </div>
-      <div className="flex gap-5 pt-6">
+      <div className="flex flex-col-reverse gap-5 pt-6 sm:flex-row">
         {quantity > 0 && (
           <div
             className={
-              'flex w-[170px] items-center justify-between rounded-full bg-[#F0F0F0] px-5 py-4 transition-all'
+              'flex min-w-[120px] items-center justify-between rounded-full bg-[#F0F0F0] px-8 py-4 transition-all sm:w-[170px] sm:justify-center sm:gap-6 sm:px-5 lg:gap-8'
             }
           >
             <button
@@ -147,7 +149,7 @@ const ProductInfo = () => {
                   })
                 )
               }
-              className="hover:scale-120"
+              className="sm:hover:scale-120"
             >
               <svg
                 width="24"
@@ -155,6 +157,7 @@ const ProductInfo = () => {
                 viewBox="0 0 24 24"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5 sm:h-6 sm:w-6"
               >
                 <path
                   d="M21.375 12C21.375 12.2984 21.2565 12.5845 21.0455 12.7955C20.8345 13.0065 20.5484 13.125 20.25 13.125H3.75C3.45163 13.125 3.16548 13.0065 2.9545 12.7955C2.74353 12.5845 2.625 12.2984 2.625 12C2.625 11.7016 2.74353 11.4155 2.9545 11.2045C3.16548 10.9935 3.45163 10.875 3.75 10.875H20.25C20.5484 10.875 20.8345 10.9935 21.0455 11.2045C21.2565 11.4155 21.375 11.7016 21.375 12Z"
@@ -176,7 +179,7 @@ const ProductInfo = () => {
                   })
                 )
               }
-              className="hover:scale-120"
+              className="sm:hover:scale-120"
             >
               <svg
                 width="24"
@@ -184,6 +187,7 @@ const ProductInfo = () => {
                 viewBox="0 0 24 24"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5 sm:h-6 sm:w-6"
               >
                 <path
                   d="M21.375 12C21.375 12.2984 21.2565 12.5845 21.0455 12.7955C20.8345 13.0065 20.5484 13.125 20.25 13.125H13.125V20.25C13.125 20.5484 13.0065 20.8345 12.7955 21.0455C12.5845 21.2565 12.2984 21.375 12 21.375C11.7016 21.375 11.4155 21.2565 11.2045 21.0455C10.9935 20.8345 10.875 20.5484 10.875 20.25V13.125H3.75C3.45163 13.125 3.16548 13.0065 2.9545 12.7955C2.74353 12.5845 2.625 12.2984 2.625 12C2.625 11.7016 2.74353 11.4155 2.9545 11.2045C3.16548 10.9935 3.45163 10.875 3.75 10.875H10.875V3.75C10.875 3.45163 10.9935 3.16548 11.2045 2.9545C11.4155 2.74353 11.7016 2.625 12 2.625C12.2984 2.625 12.5845 2.74353 12.7955 2.9545C13.0065 3.16548 13.125 3.45163 13.125 3.75V10.875H20.25C20.5484 10.875 20.8345 10.9935 21.0455 11.2045C21.2565 11.4155 21.375 11.7016 21.375 12Z"

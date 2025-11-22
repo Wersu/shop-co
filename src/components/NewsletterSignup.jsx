@@ -4,7 +4,7 @@ const NewsletterSignup = () => {
   return (
     <div className="px-4 xl:px-0">
       <div className="relative container mx-auto -mt-30 flex translate-y-[50%] flex-col items-center gap-8 rounded-3xl bg-black px-6 py-8 sm:px-16 sm:py-9 md:mt-0 lg:flex-row lg:justify-between 2xl:max-w-7xl">
-        <h2 className="title line-hei w-full text-[32px]/[35px] text-balance text-white md:text-[35px]/[40px] lg:w-1/2 lg:text-[40px]/[45px]">
+        <h2 className="title line-hei w-full text-[24px] text-balance text-white sm:text-[32px]/[35px] md:text-[35px]/[40px] lg:w-1/2 lg:text-[40px]/[45px]">
           STAY UPTO DATE ABOUT OUR LATEST OFFERS
         </h2>
         <form
@@ -36,7 +36,7 @@ const NewsletterSignup = () => {
 
           <button
             type="submit"
-            className="w-full rounded-full !bg-white px-4 py-3 font-medium text-black transition-opacity hover:opacity-60"
+            className="w-full rounded-full bg-white! px-4 py-3 font-medium text-black transition-opacity hover:opacity-60"
           >
             Subscribe to Newsletter
           </button>

@@ -44,15 +44,14 @@ const ProductTabs = () => {
   }
 
   return (
-    <div className="container mx-auto px-3 pt-[80px] pb-[64px]">
-      <ul className="grid grid-cols-3 items-center">
+    <div className="container mx-auto px-3 pt-[30px] sm:pt-[50px] md:pt-20">
+      <ul className="grid grid-cols-3 items-stretch">
         <li
-          // from-[#F0F0F0] to-white to-80%  hover:bg-radial
           className={
-            'cursor-pointer border-b pb-6 text-center text-[20px]/[22px] transition-all hover:text-[24px]/[22px]' +
+            'cursor-pointer self-end border-b py-4 text-center text-[16px] transition-all sm:text-[20px]/[22px] md:hover:text-[24px]/[22px] lg:pb-6' +
             (activeTab === 'product-detals'
               ? ' border-black text-black'
-              : ' border-black/10 text-black/60')
+              : ' border-black/10 text-black/60 hover:border-black/30 hover:text-black/70')
           }
           onClick={() => {
             setActiveTab('product-detals')
@@ -62,10 +61,10 @@ const ProductTabs = () => {
         </li>
         <li
           className={
-            'cursor-pointer border-b pb-6 text-center text-[20px]/[22px] transition-all hover:text-[24px]/[22px]' +
+            'cursor-pointer self-end border-b py-4 text-center text-[16px] transition-all sm:text-[20px]/[22px] md:hover:text-[24px]/[22px] lg:pb-6' +
             (activeTab === 'reviews'
               ? ' border-black text-black'
-              : ' border-black/10 text-black/60')
+              : ' border-black/10 text-black/60 hover:border-black/30 hover:text-black/70')
           }
           onClick={() => {
             setActiveTab('reviews')
@@ -75,10 +74,10 @@ const ProductTabs = () => {
         </li>
         <li
           className={
-            'cursor-pointer border-b pb-6 text-center text-[20px]/[22px] transition-all hover:text-[24px]/[22px]' +
+            'cursor-pointer self-end border-b py-4 text-center text-[16px] transition-all sm:text-[20px]/[22px] md:hover:text-[24px]/[22px] lg:pb-6' +
             (activeTab === 'faqs'
               ? ' border-black text-black'
-              : ' border-black/10 text-black/60')
+              : ' border-black/10 text-black/60 hover:border-black/30 hover:text-black/70')
           }
           onClick={() => {
             setActiveTab('faqs')
