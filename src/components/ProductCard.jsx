@@ -7,20 +7,20 @@ import { Link } from 'react-router-dom'
 const ProductCard = ({ product }) => {
   // const dispatch = useDispatch()
   return (
-    <div>
+    <div className="w-full max-[400px]:max-w-[90dvw]">
       <Link
         to={`/product/${product.id}`}
-        className="block overflow-hidden rounded-3xl bg-[#F0EEED]"
+        className="block w-full overflow-hidden rounded-3xl bg-[#F0EEED]"
       >
         <img
           src={product.images[product.colors[0]][0]}
           alt={product.title}
-          className="transition-transform hover:scale-110"
+          className="h-auto w-full transition-transform hover:scale-110"
         />
       </Link>
       <div className="mt-4 flex flex-col gap-2">
         <Link
-          className="subtitle text-xl hover:text-black/60"
+          className="subtitle text-base hover:text-black/60 md:text-xl"
           to={`/product/${product.id}`}
         >
           {product.title}
@@ -29,20 +29,20 @@ const ProductCard = ({ product }) => {
           <div className="">
             <div className="flex gap-3">
               <RatingStars rating={product.rating} />
-              <p className="text-sm">
+              <p className="text-xs sm:text-sm">
                 {product.rating}
                 <span className="text-black/60">/5</span>
               </p>
             </div>
             {product.sale ? (
               <div className="flex gap-2.5">
-                <p className="subtitle text-xl sm:text-2xl">
+                <p className="subtitle text-base sm:text-xl md:text-2xl">
                   ${product.actualPrice}
                 </p>
-                <p className="subtitle text-xl text-black/40 line-through sm:text-2xl">
+                <p className="subtitle text-base text-black/40 line-through sm:text-xl md:text-2xl">
                   ${product.price}
                 </p>
-                <p className="inline content-center rounded-full bg-[rgba(255,51,51,0.1)] px-3 py-1.5 text-xs text-[#FF3333]">
+                <p className="inline content-center rounded-full bg-[rgba(255,51,51,0.1)] px-1 py-0.5 text-xs text-[#FF3333] md:px-3 md:py-1.5">
                   -{product.sale * 100}%
                 </p>
               </div>
