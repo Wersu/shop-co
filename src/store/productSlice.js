@@ -1,17 +1,59 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { getColorHex, getColorName } from '../utils/colors'
 const base = import.meta.env.BASE_URL
+
+const normalizeValue = (value) => value?.toLowerCase().trim()
+const getColorLabel = (color) => {
+  const name = getColorName(color)
+  if (name) return normalizeValue(name)
+  return normalizeValue(color)
+}
+const getProductCategory = (product) => {
+  if (product.category) return product.category
+  if (!product.title) return null
+  const title = product.title.toLowerCase()
+  if (
+    title.includes('t-shirt') ||
+    title.includes('tshirt') ||
+    title.includes('t shirt')
+  ) {
+    return 'T-shirts'
+  }
+  if (title.includes('hoodie')) return 'Hoodie'
+  if (title.includes('jean')) return 'Jeans'
+  if (title.includes('short')) return 'Shorts'
+  if (title.includes('shirt')) return 'Shirts'
+  return null
+}
+const getProductDressStyle = (product) => {
+  if (product.dressStyle) return product.dressStyle
+  if (product.style) return product.style
+  if (Array.isArray(product.tags)) {
+    const match = product.tags.find((tag) =>
+      ['Casual', 'Formal', 'Party', 'Gym'].includes(tag)
+    )
+    return match || null
+  }
+  return null
+}
 
 const initialProducts = [
   {
     id: 1,
     title: 'One Life Graphic T-shirt',
+    category: 'Shirts',
+    dressStyle: 'Casual',
     price: 300,
     sale: 0.4,
     actualPrice: 0,
     rating: 4.5,
     description:
       'This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.',
-    colors: ['#4F4631', '#314F4A', '#31344F'],
+    colors: [
+      { '#4F4631': 'brown' },
+      { '#314F4A': 'green' },
+      { '#31344F': 'blue' },
+    ],
     sizes: ['Small', 'Medium', 'Large', 'X-Large'],
     images: {
       '#4F4631': [
@@ -186,12 +228,18 @@ const initialProducts = [
   {
     id: 2,
     title: 'One Life Graphic T-shirt',
+    category: 'T-shirts',
+    dressStyle: 'Casual',
     price: 300,
     sale: 0.4,
     rating: 4.5,
     description:
       'This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.',
-    colors: ['#4F4631', '#314F4A', '#31344F'],
+    colors: [
+      { '#4F4631': 'brown' },
+      { '#314F4A': 'green' },
+      { '#31344F': 'blue' },
+    ],
     sizes: ['Small', 'Medium', 'Large', 'X-Large'],
     images: {
       '#4F4631': [
@@ -366,12 +414,18 @@ const initialProducts = [
   {
     id: 3,
     title: 'One Life Graphic T-shirt',
+    category: 'T-shirts',
+    dressStyle: 'Casual',
     price: 300,
     sale: 0.4,
     rating: 4.5,
     description:
       'This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.',
-    colors: ['#4F4631', '#314F4A', '#31344F'],
+    colors: [
+      { '#4F4631': 'brown' },
+      { '#314F4A': 'green' },
+      { '#31344F': 'blue' },
+    ],
     sizes: ['Small', 'Medium', 'Large', 'X-Large'],
     images: {
       '#4F4631': [
@@ -546,12 +600,18 @@ const initialProducts = [
   {
     id: 4,
     title: 'One Life Graphic T-shirt',
+    category: 'T-shirts',
+    dressStyle: 'Casual',
     price: 300,
     sale: 0.4,
     rating: 4.5,
     description:
       'This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.',
-    colors: ['#4F4631', '#314F4A', '#31344F'],
+    colors: [
+      { '#4F4631': 'brown' },
+      { '#314F4A': 'green' },
+      { '#31344F': 'blue' },
+    ],
     sizes: ['Small', 'Medium', 'Large', 'X-Large'],
     images: {
       '#4F4631': [
@@ -726,12 +786,18 @@ const initialProducts = [
   {
     id: 5,
     title: 'One Life Graphic T-shirt',
+    category: 'T-shirts',
+    dressStyle: 'Casual',
     price: 300,
     sale: 0.4,
     rating: 4.5,
     description:
       'This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.',
-    colors: ['#4F4631', '#314F4A', '#31344F'],
+    colors: [
+      { '#4F4631': 'brown' },
+      { '#314F4A': 'green' },
+      { '#31344F': 'blue' },
+    ],
     sizes: ['Small', 'Medium', 'Large', 'X-Large'],
     images: {
       '#4F4631': [
@@ -916,6 +982,14 @@ const productSlice = createSlice({
     product: null,
     searchQuery: '',
     filteredProducts: [],
+    catalogFilters: {
+      category: null,
+      price: [50, 200],
+      colors: [],
+      sizes: [],
+      dressStyle: null,
+    },
+    catalogFilteredProducts: initialProducts,
     products: initialProducts,
   },
   reducers: {
@@ -927,7 +1001,7 @@ const productSlice = createSlice({
     },
     setProduct: (state, action) => {
       state.product = action.payload
-      state.selectedColor = state.product.colors[0]
+      state.selectedColor = getColorHex(state.product.colors[0])
     },
     setSearchQuery: (state, action) => {
       state.searchQuery = action.payload
@@ -948,6 +1022,63 @@ const productSlice = createSlice({
       state.searchQuery = ''
       state.filteredProducts = []
     },
+    applyCatalogFilters: (state, action) => {
+      state.catalogFilters = action.payload
+      state.catalogFilteredProducts = state.products.filter((product) => {
+        const price = product.actualPrice ?? product.price ?? 0
+        if (
+          price < state.catalogFilters.price[0] ||
+          price > state.catalogFilters.price[1]
+        ) {
+          return false
+        }
+
+        if (state.catalogFilters.colors.length > 0) {
+          const hasColor = product.colors?.some((color) => {
+            const colorLabel = getColorLabel(color)
+            if (!colorLabel) return false
+            return state.catalogFilters.colors.some((picked) => {
+              const pickedLabel = getColorLabel(picked)
+              return pickedLabel && pickedLabel === colorLabel
+            })
+          })
+          if (!hasColor) return false
+        }
+
+        if (state.catalogFilters.sizes.length > 0) {
+          const hasSize = product.sizes?.some((size) =>
+            state.catalogFilters.sizes.some(
+              (picked) => normalizeValue(picked) === normalizeValue(size)
+            )
+          )
+          if (!hasSize) return false
+        }
+
+        if (state.catalogFilters.category) {
+          const category = getProductCategory(product)
+          if (!category) return false
+          if (
+            normalizeValue(category) !==
+            normalizeValue(state.catalogFilters.category)
+          ) {
+            return false
+          }
+        }
+
+        if (state.catalogFilters.dressStyle) {
+          const dressStyle = getProductDressStyle(product)
+          if (!dressStyle) return true
+          if (
+            normalizeValue(dressStyle) !==
+            normalizeValue(state.catalogFilters.dressStyle)
+          ) {
+            return false
+          }
+        }
+
+        return true
+      })
+    },
   },
 })
 
@@ -958,6 +1089,7 @@ export const {
   setSearchQuery,
   searchProducts,
   clearSearch,
+  applyCatalogFilters,
 } = productSlice.actions
 
 export default productSlice.reducer

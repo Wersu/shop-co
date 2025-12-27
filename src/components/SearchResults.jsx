@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { clearSearch } from '../store/productSlice'
+import { getColorHex } from '../utils/colors'
 
 const SearchResults = () => {
   const dispatch = useDispatch()
@@ -48,7 +49,9 @@ const SearchResults = () => {
         </div>
 
         <div className="space-y-3">
-          {filteredProducts.map((product) => (
+          {filteredProducts.map((product) => {
+            const previewColor = getColorHex(product.colors?.[0])
+            return (
             <Link
               key={product.id}
               to={`/product/${product.id}`}
@@ -56,7 +59,7 @@ const SearchResults = () => {
               className="flex items-center gap-3 rounded-lg p-2 transition-colors hover:bg-gray-50"
             >
               <img
-                src={product.images[product.colors[0]][0]}
+                src={product.images[previewColor][0]}
                 alt={product.title}
                 className="h-12 w-12 rounded object-cover"
               />
@@ -79,7 +82,8 @@ const SearchResults = () => {
                 </div>
               </div>
             </Link>
-          ))}
+            )
+          })}
         </div>
       </div>
     </div>

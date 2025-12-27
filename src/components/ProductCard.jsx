@@ -1,11 +1,13 @@
 import React from 'react'
 import RatingStars from './RatingStar'
 import { Link } from 'react-router-dom'
+import { getColorHex } from '../utils/colors'
 // import { useDispatch } from 'react-redux'
 // import { addToCart } from '../store/productSlice'
 
 const ProductCard = ({ product }) => {
   // const dispatch = useDispatch()
+  const previewColor = getColorHex(product.colors?.[0])
   return (
     <div className="w-full max-[400px]:max-w-[90dvw]">
       <Link
@@ -13,7 +15,7 @@ const ProductCard = ({ product }) => {
         className="block w-full overflow-hidden rounded-3xl bg-[#F0EEED]"
       >
         <img
-          src={product.images[product.colors[0]][0]}
+          src={product.images[previewColor][0]}
           alt={product.title}
           className="h-auto w-full transition-transform hover:scale-110"
         />

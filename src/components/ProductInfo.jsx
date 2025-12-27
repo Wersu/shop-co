@@ -3,6 +3,7 @@ import RatingStars from './RatingStar'
 import { useSelector, useDispatch } from 'react-redux'
 import { setColor, setSize } from '../store/productSlice'
 import { addToCart, removeFromCart } from '../store/cartSlice'
+import { getColorHex, getColorName } from '../utils/colors'
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion'
 
@@ -79,14 +80,17 @@ const ProductInfo = () => {
         <p className="mb-4 text-black/60">Select Colors</p>
         <ul className="flex gap-4">
           {product.colors.map((color) => {
+            const colorHex = getColorHex(color)
+            const colorName = getColorName(color)
             return (
               <li
-                key={color}
+                key={colorHex}
                 className={`flex h-[37px] w-[37px] cursor-pointer items-center justify-center rounded-full hover:scale-90`}
-                onClick={() => dispatch(setColor(color))}
-                style={{ backgroundColor: color }}
+                onClick={() => dispatch(setColor(colorHex))}
+                style={{ backgroundColor: colorHex }}
+                title={colorName}
               >
-                {selectedColor === color && (
+                {selectedColor === colorHex && (
                   <svg
                     width="14"
                     height="11"
