@@ -3,10 +3,18 @@ import { getColorHex, getColorName } from '../utils/colors'
 const base = import.meta.env.BASE_URL
 
 const normalizeValue = (value) => value?.toLowerCase().trim()
-const getColorLabel = (color) => {
+const splitColorNames = (value) => {
+  if (typeof value !== 'string') return []
+  return value
+    .split(',')
+    .map((name) => normalizeValue(name))
+    .filter(Boolean)
+}
+const getColorLabels = (color) => {
   const name = getColorName(color)
-  if (name) return normalizeValue(name)
-  return normalizeValue(color)
+  if (name) return splitColorNames(name)
+  if (typeof color === 'string') return [normalizeValue(color)].filter(Boolean)
+  return []
 }
 const getProductCategory = (product) => {
   if (product.category) return product.category
@@ -50,7 +58,7 @@ const initialProducts = [
     description:
       'This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.',
     colors: [
-      { '#4F4631': 'brown' },
+      { '#4F4631': 'brown, white' },
       { '#314F4A': 'green' },
       { '#31344F': 'blue' },
     ],
@@ -1037,11 +1045,14 @@ const productSlice = createSlice({
 
         if (state.catalogFilters.colors.length > 0) {
           const hasColor = product.colors?.some((color) => {
-            const colorLabel = getColorLabel(color)
-            if (!colorLabel) return false
+            const productLabels = getColorLabels(color)
+            if (productLabels.length === 0) return false
             return state.catalogFilters.colors.some((picked) => {
-              const pickedLabel = getColorLabel(picked)
-              return pickedLabel && pickedLabel === colorLabel
+              const pickedLabels = getColorLabels(picked)
+              if (pickedLabels.length === 0) return false
+              return pickedLabels.some((pickedLabel) =>
+                productLabels.includes(pickedLabel)
+              )
             })
           })
           if (!hasColor) return false
