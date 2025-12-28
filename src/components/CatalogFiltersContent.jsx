@@ -120,7 +120,7 @@ const CatalogFiltersContent = ({
                       : [...prev.colors, color],
                   }))
                 }}
-                className={`relative h-[29px] w-[29px] rounded-full border-2 border-black/20 text-white! hover:scale-110 xl:h-[37px] xl:w-[37px] ${
+                className={`relative h-[29px] w-[29px] rounded-full border-2 border-black/20 text-white! hover:scale-90 xl:h-[37px] xl:w-[37px] ${
                   isSelected ? '' : ''
                 } `}
                 style={{ backgroundColor: hex }}
