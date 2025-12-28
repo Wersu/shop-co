@@ -7,6 +7,7 @@ import {
   clearSearch,
 } from '../store/productSlice'
 import SearchResults from './SearchResults'
+import { getColorHex } from '../utils/colors'
 
 function Header() {
   let [openDropdown, setOpenDropdown] = useState(false)
@@ -471,14 +472,16 @@ function Header() {
                 No products found
               </div>
             )}
-            {filteredProducts.map((product) => (
+            {filteredProducts.map((product) => {
+              const previewColor = getColorHex(product.colors?.[0])
+              return (
               <Link
                 key={product.id}
                 to={`/product/${product.id}`}
                 className="flex items-center gap-3 rounded-lg p-2 transition-colors hover:bg-gray-50"
               >
                 <img
-                  src={product.images[product.colors[0]][0]}
+                  src={product.images[previewColor][0]}
                   alt={product.title}
                   className="h-16 w-16 rounded object-cover"
                 />
@@ -501,7 +504,8 @@ function Header() {
                   </div>
                 </div>
               </Link>
-            ))}
+              )
+            })}
           </div>
         </div>
         <button
