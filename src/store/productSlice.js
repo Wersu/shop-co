@@ -974,6 +974,14 @@ initialProducts.forEach((product) => {
   product.actualPrice = product.price - Math.round(product.price * product.sale)
 })
 
+const createDefaultCatalogFilters = () => ({
+  category: null,
+  price: [50, 200],
+  colors: [],
+  sizes: [],
+  dressStyle: null,
+})
+
 const productSlice = createSlice({
   name: 'product',
   initialState: {
@@ -982,13 +990,7 @@ const productSlice = createSlice({
     product: null,
     searchQuery: '',
     filteredProducts: [],
-    catalogFilters: {
-      category: null,
-      price: [50, 200],
-      colors: [],
-      sizes: [],
-      dressStyle: null,
-    },
+    catalogFilters: createDefaultCatalogFilters(),
     catalogFilteredProducts: initialProducts,
     products: initialProducts,
   },
@@ -1079,6 +1081,10 @@ const productSlice = createSlice({
         return true
       })
     },
+    resetCatalogFilters: (state) => {
+      state.catalogFilters = createDefaultCatalogFilters()
+      state.catalogFilteredProducts = state.products
+    },
   },
 })
 
@@ -1090,6 +1096,7 @@ export const {
   searchProducts,
   clearSearch,
   applyCatalogFilters,
+  resetCatalogFilters,
 } = productSlice.actions
 
 export default productSlice.reducer

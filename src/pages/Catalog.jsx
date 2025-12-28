@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useEffect, useRef, useState } from 'react'
 import ProductCard from './../components/ProductCard'
 import CatalogFiltersContent from '../components/CatalogFiltersContent'
-import { applyCatalogFilters } from '../store/productSlice'
+import { applyCatalogFilters, resetCatalogFilters } from '../store/productSlice'
 
 const Catalog = () => {
   const dispatch = useDispatch()
@@ -23,6 +23,12 @@ const Catalog = () => {
   const touchStartY = useRef(0)
   const canDrag = useRef(false)
   const dragDisabled = useRef(false)
+
+  useEffect(() => {
+    return () => {
+      dispatch(resetCatalogFilters())
+    }
+  }, [dispatch])
 
   useEffect(() => {
     if (!isFiltersOpen) return
@@ -77,7 +83,7 @@ const Catalog = () => {
         <aside
           className={`no-scrollbar absolute right-0 bottom-0 left-0 max-h-[85vh] overflow-y-auto rounded-t-[20px] border border-black/10 bg-white px-3 py-5 ${
             isDragging ? 'transition-none' : 'transition-transform duration-200'
-          } [&>*]:border-b [&>*]:border-black/10 [&>*]:not-first:pt-3 [&>*]:not-last:pb-3`}
+          } *:border-b *:border-black/10 *:not-first:pt-3 *:not-last:pb-3`}
           style={{
             transform: isFiltersOpen
               ? `translateY(${dragY}px)`
