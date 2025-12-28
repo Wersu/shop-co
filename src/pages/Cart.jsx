@@ -2,7 +2,7 @@ import React from 'react'
 import Breadcrumbs from '../components/Breadcrumbs'
 // const base = import.meta.env.BASE_URL
 import { useSelector, useDispatch } from 'react-redux'
-import { getColorHex } from '../utils/colors'
+import { getColorHex, getColorName } from '../utils/colors'
 import {
   addToCart,
   removeFromCart,
@@ -40,6 +40,12 @@ const Cart = () => {
             <div className="w-full flex-1 rounded-[20px] border border-black/10 px-4 py-3 *:not-first:pt-4 *:not-last:border-b *:not-last:pb-4 md:px-6 md:py-5 md:*:not-first:pt-6 md:*:not-last:pb-6">
               {cart.map((product, index) => {
                 const previewColor = getColorHex(product.colors?.[0])
+                const selectedColorName =
+                  getColorName(
+                    product.colors?.find(
+                      (color) => getColorHex(color) === product.selectedColor
+                    )
+                  ) || product.selectedColor
                 return (
                 // <div
                 //   className="flex justify-between gap-5 border-black/10"
@@ -96,7 +102,7 @@ const Cart = () => {
                     <p className="mb-4 text-sm">
                       Color:{' '}
                       <span className="text-black/60">
-                        {product.selectedColor}
+                        {selectedColorName}
                       </span>
                     </p>
 
