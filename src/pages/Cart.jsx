@@ -2,6 +2,7 @@ import React from 'react'
 import Breadcrumbs from '../components/Breadcrumbs'
 // const base = import.meta.env.BASE_URL
 import { useSelector, useDispatch } from 'react-redux'
+import { getColorHex } from '../utils/colors'
 import {
   addToCart,
   removeFromCart,
@@ -37,7 +38,9 @@ const Cart = () => {
           </h1>
           <div className="flex flex-col gap-5 lg:flex-row">
             <div className="w-full flex-1 rounded-[20px] border border-black/10 px-4 py-3 *:not-first:pt-4 *:not-last:border-b *:not-last:pb-4 md:px-6 md:py-5 md:*:not-first:pt-6 md:*:not-last:pb-6">
-              {cart.map((product, index) => (
+              {cart.map((product, index) => {
+                const previewColor = getColorHex(product.colors?.[0])
+                return (
                 // <div
                 //   className="flex justify-between gap-5 border-black/10"
                 //   key={index}
@@ -47,7 +50,7 @@ const Cart = () => {
                   key={index}
                 >
                   <img
-                    src={product.images[product.colors[0]][0]}
+                    src={product.images[previewColor][0]}
                     alt={product.title}
                     className="h-23 w-23 shrink-0 rounded-xl object-cover sm:h-31 sm:w-31"
                   />
@@ -184,7 +187,8 @@ const Cart = () => {
                     </div>
                   </div>
                 </div>
-              ))}
+              )
+              })}
             </div>
 
             <div className="flex h-fit w-full grow-0 flex-col gap-6 rounded-[20px] border border-black/10 px-6 py-5 lg:w-[500px]">

@@ -12,7 +12,11 @@ const initialState = {
     rating: 4.5,
     description:
       'This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.',
-    colors: ['#4F4631', '#314F4A', '#31344F'],
+    colors: [
+      { '#4F4631': 'brown' },
+      { '#314F4A': 'green' },
+      { '#31344F': 'blue' },
+    ],
     sizes: ['Small', 'Medium', 'Large', 'X-Large'],
     images: {
       '#4F4631': [

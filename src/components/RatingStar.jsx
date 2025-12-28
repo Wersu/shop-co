@@ -3,7 +3,7 @@ const RatingStars = ({ rating }) => {
   const hasHalf = rating !== Math.floor(rating)
 
   return (
-    <div className="flex gap-1">
+    <div className="flex gap-0.5 md:gap-1">
       {Array(fullStars)
         .fill(0)
         .map((_, i) => (
