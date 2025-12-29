@@ -2,13 +2,15 @@
 
 Shop-Co — учебный и демонстрационный фронтенд‑проект интернет‑магазина. Цель — собрать современный интерфейс e‑commerce, показать работу с маршрутизацией, состоянием, анимациями и адаптивной версткой, а также зафиксировать понятную структуру компонентов.
 <p>
-  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
+  <img src="https://img.shields.io/badge/React-F59E0B?style=for-the-badge&logo=react&logoColor=0EA5E9" />
   <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=FFD62E" />
   <img src="https://img.shields.io/badge/React%20Router-CA4245?style=for-the-badge&logo=reactrouter&logoColor=white" />
   <img src="https://img.shields.io/badge/Redux%20Toolkit-764ABC?style=for-the-badge&logo=redux&logoColor=white" />
-  <img src="https://img.shields.io/badge/Tailwind%20CSS-0F172A?style=for-the-badge&logo=tailwindcss&logoColor=38BDF8" />
-  <img src="https://img.shields.io/badge/Framer%20Motion-0B0B0B?style=for-the-badge&logo=framer&logoColor=white" />
+  <img src="https://img.shields.io/badge/Tailwind%20CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=0B1020" />
+  <img src="https://img.shields.io/badge/Framer%20Motion-FF0080?style=for-the-badge&logo=framer&logoColor=white" />
   <img src="https://img.shields.io/badge/Swiper-0B2748?style=for-the-badge&logo=swiper&logoColor=white" />
+  <img src="https://img.shields.io/badge/Prettier-F7B93E?style=for-the-badge&logo=prettier&logoColor=1F2937" />
+  <img src="https://img.shields.io/badge/ESLint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white" />
 </p>
 
 ## Описание проекта
