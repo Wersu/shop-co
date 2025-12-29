@@ -142,7 +142,7 @@ const Catalog = () => {
         <div className="grid grid-cols-1 gap-x-3 gap-y-6 min-[390px]:grid-cols-2 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
           {products.map((product) => {
             return (
-              <div className="min-w-0" key={product.id}>
+              <div className="min-w-0 justify-self-center" key={product.id}>
                 <ProductCard product={product} />
               </div>
             )
