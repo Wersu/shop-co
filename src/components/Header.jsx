@@ -197,6 +197,7 @@ function Header() {
       if (searchQuery && !e.target.closest('.search-container')) {
         dispatch(clearSearch())
         setLocalSearchQuery('')
+        setOpenSearch(false)
       }
     }
 
@@ -642,6 +643,7 @@ function Header() {
                 key={product.id}
                 to={`/product/${product.id}`}
                 className="flex items-center gap-3 rounded-lg p-2 transition-colors hover:bg-gray-50"
+                onClick={()=>{setOpenSidenav(false)}}
               >
                 <img
                   src={product.images[previewColor][0]}
