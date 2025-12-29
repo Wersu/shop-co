@@ -35,6 +35,14 @@ const ProductInfo = () => {
       return
     }
     setSizeError(false)
+
+    const currentImage =
+      product.images?.[selectedColor]?.[0] ?? product.image ?? ''
+
+    const imgEl = document.querySelector(
+      `[data-fly-img="product-${product.id}"]`
+    )
+    const rect = imgEl ? imgEl.getBoundingClientRect() : null
     dispatch(
       addToCart({
         ...product,
@@ -43,6 +51,10 @@ const ProductInfo = () => {
         quantity: 1,
       })
     )
+    const ev = new CustomEvent('shop:productAdded', {
+      detail: { id: product.id, src: currentImage, rect },
+    })
+    window.dispatchEvent(ev)
   }
 
   return (

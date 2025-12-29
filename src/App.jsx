@@ -6,9 +6,11 @@ import Catalog from './pages/Catalog'
 import Cart from './pages/Cart'
 import Product from './pages/Product'
 import ScrollToTop from './hooks/ScrollToTop'
+import { LayoutGroup } from 'framer-motion'
 
 function App() {
   return (
+    <LayoutGroup>
     <div>
       <Header />
       <main className="pt-[80px] sm:pt-0">
@@ -22,6 +24,7 @@ function App() {
       </main>
       <Footer />
     </div>
+    </LayoutGroup>
   )
 }
 

@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
+// eslint-disable-next-line no-unused-vars
+import { motion } from 'framer-motion'
 
 const ProductGallery = () => {
   let [indexImg, setIndexImg] = useState(0)
   const product = useSelector((state) => state.product.product)
   const selectedColor = useSelector((state) => state.product.selectedColor)
   const images = product.images
+  const currentSrc = images[selectedColor][indexImg]
 
   return (
     <div className="flex flex-1 flex-col-reverse gap-3.5 xl:flex-row">
@@ -29,11 +32,19 @@ const ProductGallery = () => {
         })}
       </div>
       <div className="aspect-square w-full overflow-hidden rounded-2xl bg-[#F0EEED]">
-        <img
+        {/* <img
           src={images[selectedColor][indexImg]}
           alt=""
           className="block h-full w-full object-contain object-center"
-        />
+        /> */}
+        <motion.img
+          src={currentSrc}
+          alt={product.title}
+          className="block h-full w-auto object-cover"
+          layoutId={`product-${product.id}`}
+          transition={{ duration: 0.45 }}
+          data-fly-img={`product-${product.id}`}
+          />
       </div>
     </div>
   )
