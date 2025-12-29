@@ -103,7 +103,7 @@ const ReviewList = () => {
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.95, y: -5 }}
                   transition={{ duration: 0.15, ease: 'easeOut' }}
-                  className="absolute right-0 z-20 mt-2 w-[180px] overflow-hidden rounded-xl border border-black/10 bg-white shadow-md"
+                  className="absolute left-0 sm:left-auto sm:right-0 z-20 mt-2 w-[180px] overflow-hidden rounded-xl border border-black/10 bg-white shadow-md"
                 >
                   {[
                     { value: 'latest', label: 'Latest' },

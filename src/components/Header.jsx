@@ -197,6 +197,7 @@ function Header() {
       if (searchQuery && !e.target.closest('.search-container')) {
         dispatch(clearSearch())
         setLocalSearchQuery('')
+        setOpenSearch(false)
       }
     }
 
@@ -535,39 +536,39 @@ function Header() {
               <span className="text-black/60">Shop</span>
               <ul className="mt-1 flex flex-col items-center gap-1">
                 <li>
-                  <Link to="/catalog" className="hover:text-black/60">
+                  <Link to="/catalog" className="hover:text-black/60" onClick={()=>{setOpenSidenav(false)}}>
                     Casual
                   </Link>
                 </li>
                 <li>
-                  <Link to="/catalog" className="hover:text-black/60">
+                  <Link to="/catalog" className="hover:text-black/60" onClick={()=>{setOpenSidenav(false)}}>
                     Formal
                   </Link>
                 </li>
                 <li>
-                  <Link to="/catalog" className="hover:text-black/60">
+                  <Link to="/catalog" className="hover:text-black/60" onClick={()=>{setOpenSidenav(false)}}>
                     Party
                   </Link>
                 </li>
                 <li>
-                  <Link to="/catalog" className="hover:text-black/60">
+                  <Link to="/catalog" className="hover:text-black/60" onClick={()=>{setOpenSidenav(false)}}>
                     Gym
                   </Link>
                 </li>
               </ul>
             </li>
             <li>
-              <Link to="/catalog" className="hover:text-black/60">
+              <Link to="/catalog" className="hover:text-black/60" onClick={()=>{setOpenSidenav(false)}}>
                 On Sale
               </Link>
             </li>
             <li>
-              <Link to="/catalog" className="hover:text-black/60">
+              <Link to="/catalog" className="hover:text-black/60" onClick={()=>{setOpenSidenav(false)}}>
                 New Arrivals
               </Link>
             </li>
             <li>
-              <Link to="/catalog" className="hover:text-black/60">
+              <Link to="/catalog" className="hover:text-black/60" onClick={()=>{setOpenSidenav(false)}}>
                 Brands
               </Link>
             </li>
@@ -642,6 +643,7 @@ function Header() {
                 key={product.id}
                 to={`/product/${product.id}`}
                 className="flex items-center gap-3 rounded-lg p-2 transition-colors hover:bg-gray-50"
+                onClick={()=>{setOpenSidenav(false)}}
               >
                 <img
                   src={product.images[previewColor][0]}

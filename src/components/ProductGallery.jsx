@@ -40,7 +40,7 @@ const ProductGallery = () => {
         <motion.img
           src={currentSrc}
           alt={product.title}
-          className="block h-full w-auto object-cover"
+          className="block h-full w-auto object-cover justify-self-center"
           layoutId={`product-${product.id}`}
           transition={{ duration: 0.45 }}
           data-fly-img={`product-${product.id}`}
