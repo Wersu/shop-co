@@ -8,8 +8,15 @@ import {
 } from '../store/productSlice'
 import SearchResults from './SearchResults'
 import { getColorHex } from '../utils/colors'
+// eslint-disable-next-line no-unused-vars
+import { motion } from 'framer-motion'
 
 function Header() {
+  const PREVIEW_DURATION = 0.6
+  const PREVIEW_STEPS = 18
+  const PREVIEW_INITIAL_SIZE = 56
+  const PREVIEW_TARGET_SIZE = 36
+  const PREVIEW_START_SCALE = 3
   let [openDropdown, setOpenDropdown] = useState(false)
   let [openSidenav, setOpenSidenav] = useState(false)
   let [openSearch, setOpenSearch] = useState(false)
@@ -29,6 +36,89 @@ function Header() {
   const closeTimer = useRef(null)
   const searchTimer = useRef(null)
   const mobileSearchInputRef = useRef(null)
+
+  const [recentlyAdded] = useState(null)
+  const [flying, setFlying] = useState(null)
+
+  const cartRef = useRef(null)
+
+  useEffect(() => {
+    function onProductAdded(e) {
+      const detail = e?.detail ?? {}
+      if (!detail?.id) return
+
+      const src = detail.src || ''
+      const id = detail.id
+      const startRect = detail.rect || null
+
+      const cartEl =
+        cartRef.current || document.querySelector('[data-cart-icon]') || null
+      const cartRect = cartEl ? cartEl.getBoundingClientRect() : null
+
+      const p0 = startRect
+        ? {
+            x: startRect.left + startRect.width / 2,
+            y: startRect.top + startRect.height / 2,
+          }
+        : { x: window.innerWidth - 80, y: 80 }
+      const p2 = cartRect
+        ? {
+            x: cartRect.left + cartRect.width / 2,
+            y: cartRect.top + cartRect.height / 2,
+          }
+        : { x: window.innerWidth - 40, y: 60 }
+
+      const midX = (p0.x + p2.x) / 2
+      const midY = (p0.y + p2.y) / 2
+      const distance = Math.hypot(p2.x - p0.x, p2.y - p0.y)
+      const arcHeight = Math.max(60, Math.min(220, distance * 0.45))
+      const control = { x: midX, y: midY + arcHeight }
+
+      const sampleQuadratic = (p0, p1, p2, steps) => {
+        const xs = []
+        const ys = []
+        for (let i = 0; i <= steps; i++) {
+          const t = i / steps
+          const u = 1 - t
+          const x = u * u * p0.x + 2 * u * t * p1.x + t * t * p2.x
+          const y = u * u * p0.y + 2 * u * t * p1.y + t * t * p2.y
+          xs.push(x)
+          ys.push(y)
+        }
+        return { xs, ys }
+      }
+
+      const samples = sampleQuadratic(p0, control, p2, PREVIEW_STEPS)
+
+      const xsRel = samples.xs.map((x) => x - p0.x)
+      const ysRel = samples.ys.map((y) => y - p0.y)
+
+      const targetScale = PREVIEW_TARGET_SIZE / PREVIEW_INITIAL_SIZE
+
+      const scalesKeyframes = samples.xs.map((_, i) => {
+        const t = i / PREVIEW_STEPS
+        return PREVIEW_START_SCALE + (targetScale - PREVIEW_START_SCALE) * t
+      })
+
+      setFlying({
+        id,
+        src,
+        left: p0.x - PREVIEW_INITIAL_SIZE / 2,
+        top: p0.y - PREVIEW_INITIAL_SIZE / 2,
+        xs: xsRel,
+        ys: ysRel,
+        scales: scalesKeyframes,
+      })
+
+      const clearMs = Math.round((PREVIEW_DURATION + 0.3) * 1000)
+      setTimeout(() => {
+        setFlying(null)
+      }, clearMs)
+    }
+
+    window.addEventListener('shop:productAdded', onProductAdded)
+    return () => window.removeEventListener('shop:productAdded', onProductAdded)
+  }, [])
 
   const handleEnter = () => {
     if (closeTimer.current) {
@@ -69,13 +159,19 @@ function Header() {
   }
 
   useEffect(() => {
-    setTimeout(() => {
+    if (count > countOfCart) {
+      setTimeout(() => {
+        setCountOfCart(count)
+      }, 700)
+    } else {
       setCountOfCart(count)
-    }, 1000)
+    }
     return () => {
       clearTimeout()
     }
-  }, [count])
+  }, [count, countOfCart])
+
+  
 
   useEffect(() => {
     return () => {
@@ -318,6 +414,7 @@ function Header() {
               to="/cart"
               aria-label="Cart"
             >
+               <div className="" ref={cartRef} data-cart-icon>
               <svg
                 width="24"
                 height="24"
@@ -336,6 +433,33 @@ function Header() {
               >
                 {countOfCart}
               </p>
+              </div>
+              <div className="pointer-events-none absolute -top-6 -right-6 h-10 w-10">
+                {recentlyAdded && (
+                  <motion.img
+                    src={recentlyAdded.src}
+                    alt="preview"
+                    layoutId={`product-${recentlyAdded.id}`}
+                    initial={{
+                      width: PREVIEW_INITIAL_SIZE,
+                      height: PREVIEW_INITIAL_SIZE,
+                    }}
+                    animate={{
+                      width: PREVIEW_TARGET_SIZE,
+                      height: PREVIEW_TARGET_SIZE,
+                    }}
+                    transition={{
+                      duration: PREVIEW_DURATION,
+                      ease: [0.2, 0.8, 0.2, 1],
+                    }}
+                    className="rounded-md object-cover shadow-md"
+                    style={{
+                      width: PREVIEW_TARGET_SIZE,
+                      height: PREVIEW_TARGET_SIZE,
+                    }}
+                  />
+                )}
+              </div>
             </Link>
             <button
               className="hover:text-black/60"
@@ -359,6 +483,45 @@ function Header() {
           </div>
         </div>
       </div>
+      
+      {flying && (
+        <motion.img
+          src={flying.src}
+          alt="preview"
+          initial={{
+            position: 'fixed',
+            left: flying.left,
+            top: flying.top,
+            width: PREVIEW_INITIAL_SIZE,
+            height: PREVIEW_INITIAL_SIZE,
+            x: 0,
+            y: 0,
+            scale: PREVIEW_START_SCALE,
+            zIndex: 9999,
+          }}
+          animate={{
+            x: flying.xs,
+            y: flying.ys,
+            scale: flying.scales,
+            opacity: [1, 1, 0.95, 0.7, 0.5, 0],
+          }}
+          transition={{
+            duration: PREVIEW_DURATION,
+            ease: 'linear',
+          }}
+          style={{
+            position: 'fixed',
+            left: flying.left,
+            top: flying.top,
+            width: PREVIEW_INITIAL_SIZE,
+            height: PREVIEW_INITIAL_SIZE,
+            pointerEvents: 'none',
+            borderRadius: 8,
+            boxShadow: '0 8px 24px rgba(0,0,0,0.18)',
+            zIndex: 9999,
+          }}
+        />
+      )}
 
       <aside
         id="mobile-sidenav"
