@@ -302,8 +302,13 @@ function Header() {
               >
                 <ul className="flex flex-col gap-2">
                   <li>
+                    <Link to="/shop" className="text-black hover:text-black/60">
+                      Shop
+                    </Link>
+                  </li>
+                  <li>
                     <Link
-                      to="/catalog"
+                      to="/shop/casual"
                       className="text-black hover:text-black/60"
                     >
                       Casual
@@ -311,7 +316,7 @@ function Header() {
                   </li>
                   <li>
                     <Link
-                      to="/catalog"
+                      to="/shop/formal"
                       className="text-black hover:text-black/60"
                     >
                       Formal
@@ -319,7 +324,7 @@ function Header() {
                   </li>
                   <li>
                     <Link
-                      to="/catalog"
+                      to="/shop/party"
                       className="text-black hover:text-black/60"
                     >
                       Party
@@ -327,7 +332,7 @@ function Header() {
                   </li>
                   <li>
                     <Link
-                      to="/catalog"
+                      to="/shop/gym"
                       className="text-black hover:text-black/60"
                     >
                       Gym
@@ -337,10 +342,10 @@ function Header() {
               </div>
             </div>
 
-            <Link to="/catalog" className="hover:text-black/60">
+            <Link to="/shop/on-sale" className="hover:text-black/60">
               On Sale
             </Link>
-            <Link to="/catalog" className="hover:text-black/60">
+            <Link to="/shop/new-arrivals" className="hover:text-black/60">
               New Arrivals
             </Link>
             <Link to="/catalog" className="hover:text-black/60">
@@ -536,34 +541,39 @@ function Header() {
               <span className="text-black/60">Shop</span>
               <ul className="mt-1 flex flex-col items-center gap-1">
                 <li>
-                  <Link to="/catalog" className="hover:text-black/60" onClick={()=>{setOpenSidenav(false)}}>
+                  <Link to="/shop" className="hover:text-black/60" onClick={()=>{setOpenSidenav(false)}}>
+                    Shop
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/shop/casual" className="hover:text-black/60" onClick={()=>{setOpenSidenav(false)}}>
                     Casual
                   </Link>
                 </li>
                 <li>
-                  <Link to="/catalog" className="hover:text-black/60" onClick={()=>{setOpenSidenav(false)}}>
+                  <Link to="/shop/formal" className="hover:text-black/60" onClick={()=>{setOpenSidenav(false)}}>
                     Formal
                   </Link>
                 </li>
                 <li>
-                  <Link to="/catalog" className="hover:text-black/60" onClick={()=>{setOpenSidenav(false)}}>
+                  <Link to="/shop/party" className="hover:text-black/60" onClick={()=>{setOpenSidenav(false)}}>
                     Party
                   </Link>
                 </li>
                 <li>
-                  <Link to="/catalog" className="hover:text-black/60" onClick={()=>{setOpenSidenav(false)}}>
+                  <Link to="/shop/gym" className="hover:text-black/60" onClick={()=>{setOpenSidenav(false)}}>
                     Gym
                   </Link>
                 </li>
               </ul>
             </li>
             <li>
-              <Link to="/catalog" className="hover:text-black/60" onClick={()=>{setOpenSidenav(false)}}>
+              <Link to="/shop/on-sale" className="hover:text-black/60" onClick={()=>{setOpenSidenav(false)}}>
                 On Sale
               </Link>
             </li>
             <li>
-              <Link to="/catalog" className="hover:text-black/60" onClick={()=>{setOpenSidenav(false)}}>
+              <Link to="/shop/new-arrivals" className="hover:text-black/60" onClick={()=>{setOpenSidenav(false)}}>
                 New Arrivals
               </Link>
             </li>

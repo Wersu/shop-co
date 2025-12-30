@@ -1017,6 +1017,9 @@ const createDefaultCatalogFilters = () => ({
   colors: [],
   sizes: [],
   dressStyle: null,
+  onSale: false,
+  isNew: false,
+  isTop: false,
 })
 
 const productSlice = createSlice({
@@ -1116,6 +1119,22 @@ const productSlice = createSlice({
           ) {
             return false
           }
+        }
+
+        if (state.catalogFilters.onSale) {
+          const isOnSale =
+            typeof product.sale === 'number'
+              ? product.sale > 0
+              : (product.actualPrice ?? 0) < (product.price ?? 0)
+          if (!isOnSale) return false
+        }
+
+        if (state.catalogFilters.isNew && !product.isNew) {
+          return false
+        }
+
+        if (state.catalogFilters.isTop && !product.isTop) {
+          return false
         }
 
         return true

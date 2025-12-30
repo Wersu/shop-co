@@ -63,10 +63,10 @@ function Product() {
 
   const breadcrumbs = [
     { label: 'Home', href: '/' },
-    { label: 'Shop', href: '/catalog' },
+    { label: 'Shop', href: '/shop' },
     {
       label: product.category || 'Catalog',
-      href: '/catalog',
+      href: '/shop',
     },
     {
       label: product.title,

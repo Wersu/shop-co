@@ -4,18 +4,37 @@ import ProductCard from './../components/ProductCard'
 import CatalogFiltersContent from '../components/CatalogFiltersContent'
 import { applyCatalogFilters, resetCatalogFilters } from '../store/productSlice'
 
-const Catalog = () => {
+const buildDefaultFilters = (overrides = {}) => ({
+  category: null,
+  price: [50, 200],
+  colors: [],
+  sizes: [],
+  dressStyle: null,
+  onSale: false,
+  isNew: false,
+  isTop: false,
+  ...overrides,
+})
+
+const Catalog = ({
+  title = 'Catalog',
+  initialDressStyle = null,
+  initialOnSale = false,
+  initialIsNew = false,
+  initialIsTop = false,
+}) => {
   const dispatch = useDispatch()
 
   const products = useSelector((state) => state.product.catalogFilteredProducts)
 
-  const [localFilters, setLocalFilters] = useState({
-    category: null,
-    price: [50, 200],
-    colors: [],
-    sizes: [],
-    dressStyle: null,
-  })
+  const [localFilters, setLocalFilters] = useState(() =>
+    buildDefaultFilters({
+      dressStyle: initialDressStyle,
+      onSale: initialOnSale,
+      isNew: initialIsNew,
+      isTop: initialIsTop,
+    })
+  )
   const [priceValue, setPriceValue] = useState(200)
   const [isFiltersOpen, setIsFiltersOpen] = useState(false)
   const [dragY, setDragY] = useState(0)
@@ -29,6 +48,29 @@ const Catalog = () => {
       dispatch(resetCatalogFilters())
     }
   }, [dispatch])
+
+  useEffect(() => {
+    const hasInitialFilters =
+      Boolean(initialDressStyle) ||
+      initialOnSale ||
+      initialIsNew ||
+      initialIsTop
+    if (!hasInitialFilters) return
+    const nextFilters = buildDefaultFilters({
+      dressStyle: initialDressStyle,
+      onSale: initialOnSale,
+      isNew: initialIsNew,
+      isTop: initialIsTop,
+    })
+    setLocalFilters(nextFilters)
+    dispatch(applyCatalogFilters(nextFilters))
+  }, [
+    dispatch,
+    initialDressStyle,
+    initialOnSale,
+    initialIsNew,
+    initialIsTop,
+  ])
 
   useEffect(() => {
     if (!isFiltersOpen) return
@@ -130,7 +172,7 @@ const Catalog = () => {
 
       <section className="col-span-12 sm:col-span-8 lg:col-span-9">
         <div className="mb-4 flex items-center justify-between">
-          <h2 className="subtitle text-[24px] md:text-[32px]">Casual</h2>
+          <h2 className="subtitle text-[24px] md:text-[32px]">{title}</h2>
           <button
             className="rounded-full bg-[#F0F0F0] p-2 sm:hidden"
             onClick={() => setIsFiltersOpen(true)}
