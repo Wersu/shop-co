@@ -23,7 +23,7 @@ const NewArrivals = () => {
         })}
       </div>
       <Link
-        to="/catalog"
+        to="/shop"
         className="box-border w-55 rounded-full border-1 border-black/10 px-13 py-3 text-center hover:border-black hover:bg-black hover:text-white max-sm:w-[90%] sm:py-4"
       >
         View All

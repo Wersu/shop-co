@@ -13,7 +13,7 @@ const DressStyle = () => {
 
         <div className="mb-4 block gap-5 md:mb-5 md:flex">
           <Link
-            to="/catalog"
+            to="/shop/casual"
             className="relative mb-4 block h-48 flex-2 overflow-hidden rounded-xl bg-white md:mb-0 md:h-72"
           >
             <img
@@ -30,7 +30,7 @@ const DressStyle = () => {
             </h3>
           </Link>
           <Link
-            to="/catalog"
+            to="/shop/formal"
             className="relative block h-48 flex-3 overflow-hidden rounded-xl md:h-72"
           >
             <img
@@ -48,7 +48,7 @@ const DressStyle = () => {
         </div>
         <div className="block gap-5 md:flex">
           <Link
-            to="/catalog"
+            to="/shop/party"
             className="relative mb-4 block h-48 flex-3 overflow-hidden rounded-xl md:mb-0 md:h-72"
           >
             <img
@@ -64,7 +64,7 @@ const DressStyle = () => {
             </h3>
           </Link>
           <Link
-            to="/catalog"
+            to="/shop/gym"
             className="relative block h-48 flex-2 overflow-hidden rounded-xl bg-white md:h-72"
           >
             <img

@@ -4,18 +4,22 @@ import ProductCard from './../components/ProductCard'
 import CatalogFiltersContent from '../components/CatalogFiltersContent'
 import { applyCatalogFilters, resetCatalogFilters } from '../store/productSlice'
 
-const Catalog = () => {
+const buildDefaultFilters = (dressStyleValue = null) => ({
+  category: null,
+  price: [50, 200],
+  colors: [],
+  sizes: [],
+  dressStyle: dressStyleValue,
+})
+
+const Catalog = ({ title = 'Catalog', initialDressStyle = null }) => {
   const dispatch = useDispatch()
 
   const products = useSelector((state) => state.product.catalogFilteredProducts)
 
-  const [localFilters, setLocalFilters] = useState({
-    category: null,
-    price: [50, 200],
-    colors: [],
-    sizes: [],
-    dressStyle: null,
-  })
+  const [localFilters, setLocalFilters] = useState(() =>
+    buildDefaultFilters(initialDressStyle)
+  )
   const [priceValue, setPriceValue] = useState(200)
   const [isFiltersOpen, setIsFiltersOpen] = useState(false)
   const [dragY, setDragY] = useState(0)
@@ -29,6 +33,13 @@ const Catalog = () => {
       dispatch(resetCatalogFilters())
     }
   }, [dispatch])
+
+  useEffect(() => {
+    if (!initialDressStyle) return
+    const nextFilters = buildDefaultFilters(initialDressStyle)
+    setLocalFilters(nextFilters)
+    dispatch(applyCatalogFilters(nextFilters))
+  }, [dispatch, initialDressStyle])
 
   useEffect(() => {
     if (!isFiltersOpen) return
@@ -130,7 +141,7 @@ const Catalog = () => {
 
       <section className="col-span-12 sm:col-span-8 lg:col-span-9">
         <div className="mb-4 flex items-center justify-between">
-          <h2 className="subtitle text-[24px] md:text-[32px]">Casual</h2>
+          <h2 className="subtitle text-[24px] md:text-[32px]">{title}</h2>
           <button
             className="rounded-full bg-[#F0F0F0] p-2 sm:hidden"
             onClick={() => setIsFiltersOpen(true)}

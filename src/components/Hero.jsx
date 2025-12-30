@@ -17,7 +17,7 @@ const Hero = () => {
             style.
           </p>
           <Link
-            to="/catalog"
+            to="/shop"
             className="inline-block w-full rounded-full bg-black p-4 text-center text-white hover:opacity-60 sm:w-52"
           >
             Shop Now
