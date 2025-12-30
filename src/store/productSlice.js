@@ -281,42 +281,31 @@ const baseProducts = [
     },
     faqs: [
       {
-        question: 'How should I care for the t-shirt?',
-        answer:
-          'Machine wash in cold water (30°C) with similar colors. Do not bleach. Air dry.',
+        question: 'Are the shorts lined?',
+        answer: 'No, they are unlined for lightweight wear.',
       },
       {
-        question: 'Does the t-shirt shrink after washing?',
-        answer:
-          'No, thanks to pre-treatment, the fabric keeps its shape and does not shrink.',
+        question: 'What is the inseam length?',
+        answer: 'Approximately 7 inches for a casual fit.',
       },
       {
-        question: 'Is the fit suitable for everyday wear?',
-        answer:
-          'Yes, the t-shirt has a universal Regular Fit — comfortable both for sports and casual looks.',
-      },
-      {
-        question: 'Can I return it if the size doesn’t fit?',
-        answer:
-          'Yes, returns are accepted within 30 days if the tag and packaging are preserved.',
-      },
-      {
-        question: 'What material is the t-shirt made of?',
-        answer: '100% organic cotton — breathable, soft, and eco-friendly.',
+        question: 'Do they have pockets?',
+        answer: 'Yes, two side pockets and one back pocket.',
       },
     ],
     productDetails: {
       descriptions: [
-        'This premium t-shirt is crafted from 100% organic cotton, offering a breathable and lightweight feel. Designed with a timeless cut, it’s perfect for both casual and smart-casual outfits.',
-        'Durable stitching and high-quality fabric ensure long-lasting wear while maintaining softness wash after wash.',
+        'Easy going shorts built with a light weave and a soft finish for warm days.',
+        'Relaxed through the seat with clean stitching that stays neat after washing.',
       ],
       params: {
-        Material: '100% Organic Cotton',
+        Material: 'Cotton blend twill',
         Fit: 'Regular',
         Care: 'Machine wash cold',
-        Origin: 'Made in Italy',
+        Origin: 'Made in Turkey',
         Sizes: 'S, M, L, XL',
       },
+    
     },
     reviews: [
       {
@@ -461,42 +450,31 @@ const baseProducts = [
     },
     faqs: [
       {
-        question: 'How should I care for the t-shirt?',
-        answer:
-          'Machine wash in cold water (30°C) with similar colors. Do not bleach. Air dry.',
+        question: 'Do the jeans have stretch?',
+        answer: 'Yes, a small amount of elastane adds comfort.',
       },
       {
-        question: 'Does the t-shirt shrink after washing?',
-        answer:
-          'No, thanks to pre-treatment, the fabric keeps its shape and does not shrink.',
+        question: 'Is the fit slim or relaxed?',
+        answer: 'Slim through the leg with a regular rise.',
       },
       {
-        question: 'Is the fit suitable for everyday wear?',
-        answer:
-          'Yes, the t-shirt has a universal Regular Fit — comfortable both for sports and casual looks.',
-      },
-      {
-        question: 'Can I return it if the size doesn’t fit?',
-        answer:
-          'Yes, returns are accepted within 30 days if the tag and packaging are preserved.',
-      },
-      {
-        question: 'What material is the t-shirt made of?',
-        answer: '100% organic cotton — breathable, soft, and eco-friendly.',
+        question: 'How should I wash them?',
+        answer: 'Turn inside out and wash cold to preserve color.',
       },
     ],
     productDetails: {
       descriptions: [
-        'This premium t-shirt is crafted from 100% organic cotton, offering a breathable and lightweight feel. Designed with a timeless cut, it’s perfect for both casual and smart-casual outfits.',
-        'Durable stitching and high-quality fabric ensure long-lasting wear while maintaining softness wash after wash.',
+        'Slim denim with a clean leg line and subtle stretch for comfort.',
+        'Finished with durable seams and a soft hand feel for daily wear.',
       ],
       params: {
-        Material: '100% Organic Cotton',
-        Fit: 'Regular',
-        Care: 'Machine wash cold',
-        Origin: 'Made in Italy',
+        Material: 'Denim with elastane',
+        Fit: 'Slim',
+        Care: 'Wash cold, hang dry',
+        Origin: 'Made in Portugal',
         Sizes: 'S, M, L, XL',
       },
+    
     },
     reviews: [
       {
@@ -640,42 +618,31 @@ const baseProducts = [
     },
     faqs: [
       {
-        question: 'How should I care for the t-shirt?',
-        answer:
-          'Machine wash in cold water (30°C) with similar colors. Do not bleach. Air dry.',
+        question: 'Is this tee good for workouts?',
+        answer: 'Yes, the fabric is moisture friendly.',
       },
       {
-        question: 'Does the t-shirt shrink after washing?',
-        answer:
-          'No, thanks to pre-treatment, the fabric keeps its shape and does not shrink.',
+        question: 'Does it run true to size?',
+        answer: 'Yes, it follows a standard athletic fit.',
       },
       {
-        question: 'Is the fit suitable for everyday wear?',
-        answer:
-          'Yes, the t-shirt has a universal Regular Fit — comfortable both for sports and casual looks.',
-      },
-      {
-        question: 'Can I return it if the size doesn’t fit?',
-        answer:
-          'Yes, returns are accepted within 30 days if the tag and packaging are preserved.',
-      },
-      {
-        question: 'What material is the t-shirt made of?',
-        answer: '100% organic cotton — breathable, soft, and eco-friendly.',
+        question: 'Is it tagless?',
+        answer: 'Yes, the neck label is printed for comfort.',
       },
     ],
     productDetails: {
       descriptions: [
-        'This premium t-shirt is crafted from 100% organic cotton, offering a breathable and lightweight feel. Designed with a timeless cut, it’s perfect for both casual and smart-casual outfits.',
-        'Durable stitching and high-quality fabric ensure long-lasting wear while maintaining softness wash after wash.',
+        'Training tee with a smooth touch and flexible knit for movement.',
+        'Breathable finish keeps the feel light through long sessions.',
       ],
       params: {
-        Material: '100% Organic Cotton',
-        Fit: 'Regular',
+        Material: 'Performance cotton',
+        Fit: 'Athletic',
         Care: 'Machine wash cold',
-        Origin: 'Made in Italy',
+        Origin: 'Made in Vietnam',
         Sizes: 'S, M, L, XL',
       },
+    
     },
     reviews: [
       {
@@ -820,42 +787,31 @@ const baseProducts = [
     },
     faqs: [
       {
-        question: 'How should I care for the t-shirt?',
-        answer:
-          'Machine wash in cold water (30°C) with similar colors. Do not bleach. Air dry.',
+        question: 'Are these jeans tapered?',
+        answer: 'Yes, they narrow slightly toward the ankle.',
       },
       {
-        question: 'Does the t-shirt shrink after washing?',
-        answer:
-          'No, thanks to pre-treatment, the fabric keeps its shape and does not shrink.',
+        question: 'Do they fade over time?',
+        answer: 'Minimal fading with cold washes.',
       },
       {
-        question: 'Is the fit suitable for everyday wear?',
-        answer:
-          'Yes, the t-shirt has a universal Regular Fit — comfortable both for sports and casual looks.',
-      },
-      {
-        question: 'Can I return it if the size doesn’t fit?',
-        answer:
-          'Yes, returns are accepted within 30 days if the tag and packaging are preserved.',
-      },
-      {
-        question: 'What material is the t-shirt made of?',
-        answer: '100% organic cotton — breathable, soft, and eco-friendly.',
+        question: 'Is the fabric heavy?',
+        answer: 'Midweight denim for year round wear.',
       },
     ],
     productDetails: {
       descriptions: [
-        'This premium t-shirt is crafted from 100% organic cotton, offering a breathable and lightweight feel. Designed with a timeless cut, it’s perfect for both casual and smart-casual outfits.',
-        'Durable stitching and high-quality fabric ensure long-lasting wear while maintaining softness wash after wash.',
+        'Modern jeans with a tapered leg and balanced weight denim.',
+        'Structured look that softens with wear without losing shape.',
       ],
       params: {
-        Material: '100% Organic Cotton',
-        Fit: 'Regular',
-        Care: 'Machine wash cold',
+        Material: 'Midweight denim',
+        Fit: 'Tapered',
+        Care: 'Wash cold inside out',
         Origin: 'Made in Italy',
         Sizes: 'S, M, L, XL',
       },
+    
     },
     reviews: [
       {
@@ -993,42 +949,31 @@ const baseProducts = [
     },
     faqs: [
       {
-        question: 'How should I care for the t-shirt?',
-        answer:
-          'Machine wash in cold water (30°C) with similar colors. Do not bleach. Air dry.',
+        question: 'Are the shorts high waisted?',
+        answer: 'No, they have a regular rise.',
       },
       {
-        question: 'Does the t-shirt shrink after washing?',
-        answer:
-          'No, thanks to pre-treatment, the fabric keeps its shape and does not shrink.',
+        question: 'Do they shrink after washing?',
+        answer: 'Minimal shrinkage with cold wash and air dry.',
       },
       {
-        question: 'Is the fit suitable for everyday wear?',
-        answer:
-          'Yes, the t-shirt has a universal Regular Fit — comfortable both for sports and casual looks.',
-      },
-      {
-        question: 'Can I return it if the size doesn’t fit?',
-        answer:
-          'Yes, returns are accepted within 30 days if the tag and packaging are preserved.',
-      },
-      {
-        question: 'What material is the t-shirt made of?',
-        answer: '100% organic cotton — breathable, soft, and eco-friendly.',
+        question: 'Is the waist elastic?',
+        answer: 'No, it uses a fixed waistband with belt loops.',
       },
     ],
     productDetails: {
       descriptions: [
-        'This premium t-shirt is crafted from 100% organic cotton, offering a breathable and lightweight feel. Designed with a timeless cut, it’s perfect for both casual and smart-casual outfits.',
-        'Durable stitching and high-quality fabric ensure long-lasting wear while maintaining softness wash after wash.',
+        'Stonewash shorts with a laid back finish and easy comfort.',
+        'Built for everyday use with reinforced pocket edges.',
       ],
       params: {
-        Material: '100% Organic Cotton',
+        Material: 'Washed denim',
         Fit: 'Regular',
         Care: 'Machine wash cold',
-        Origin: 'Made in Italy',
+        Origin: 'Made in India',
         Sizes: 'S, M, L, XL',
       },
+    
     },
     reviews: [
       {
@@ -1173,42 +1118,31 @@ const baseProducts = [
     },
     faqs: [
       {
-        question: 'How should I care for the t-shirt?',
-        answer:
-          'Machine wash in cold water (30°C) with similar colors. Do not bleach. Air dry.',
+        question: 'Is the collar structured?',
+        answer: 'Yes, it holds shape after washing.',
       },
       {
-        question: 'Does the t-shirt shrink after washing?',
-        answer:
-          'No, thanks to pre-treatment, the fabric keeps its shape and does not shrink.',
+        question: 'Can it be tucked in?',
+        answer: 'Yes, the length works for tucking.',
       },
       {
-        question: 'Is the fit suitable for everyday wear?',
-        answer:
-          'Yes, the t-shirt has a universal Regular Fit — comfortable both for sports and casual looks.',
-      },
-      {
-        question: 'Can I return it if the size doesn’t fit?',
-        answer:
-          'Yes, returns are accepted within 30 days if the tag and packaging are preserved.',
-      },
-      {
-        question: 'What material is the t-shirt made of?',
-        answer: '100% organic cotton — breathable, soft, and eco-friendly.',
+        question: 'Is it breathable?',
+        answer: 'Yes, the cotton blend is airy.',
       },
     ],
     productDetails: {
       descriptions: [
-        'This premium t-shirt is crafted from 100% organic cotton, offering a breathable and lightweight feel. Designed with a timeless cut, it’s perfect for both casual and smart-casual outfits.',
-        'Durable stitching and high-quality fabric ensure long-lasting wear while maintaining softness wash after wash.',
+        'Polo shirt with a clean collar and a breathable knit texture.',
+        'Balanced weight fabric keeps a crisp look after washing.',
       ],
       params: {
-        Material: '100% Organic Cotton',
+        Material: 'Cotton pique',
         Fit: 'Regular',
         Care: 'Machine wash cold',
-        Origin: 'Made in Italy',
+        Origin: 'Made in Turkey',
         Sizes: 'S, M, L, XL',
       },
+    
     },
     reviews: [
       {
@@ -1345,43 +1279,32 @@ const baseProducts = [
     },
     faqs: [
       {
-        question: 'How should I care for the t-shirt?',
-        answer:
-          'Machine wash in cold water (30°C) with similar colors. Do not bleach. Air dry.',
+        question: 'Does the stripe pattern fade?',
+        answer: 'No, it keeps color with cold wash.',
       },
       {
-        question: 'Does the t-shirt shrink after washing?',
-        answer:
-          'No, thanks to pre-treatment, the fabric keeps its shape and does not shrink.',
+        question: 'Is the fabric soft?',
+        answer: 'Yes, it is a soft cotton knit.',
       },
       {
-        question: 'Is the fit suitable for everyday wear?',
-        answer:
-          'Yes, the t-shirt has a universal Regular Fit — comfortable both for sports and casual looks.',
-      },
-      {
-        question: 'Can I return it if the size doesn’t fit?',
-        answer:
-          'Yes, returns are accepted within 30 days if the tag and packaging are preserved.',
-      },
-      {
-        question: 'What material is the t-shirt made of?',
-        answer: '100% organic cotton — breathable, soft, and eco-friendly.',
+        question: 'Is it boxy or fitted?',
+        answer: 'Regular fit, not oversized.',
       },
     ],
     productDetails: {
       descriptions: [
-        'This premium t-shirt is crafted from 100% organic cotton, offering a breathable and lightweight feel. Designed with a timeless cut, it’s perfect for both casual and smart-casual outfits.',
-        'Durable stitching and high-quality fabric ensure long-lasting wear while maintaining softness wash after wash.',
+        'Striped tee with a soft jersey feel and a classic cut.',
+        'Lightweight construction makes it easy to layer.',
       ],
       params: {
-        Material: '100% Organic Cotton',
+        Material: 'Cotton jersey',
         Fit: 'Regular',
         Care: 'Machine wash cold',
-        Origin: 'Made in Italy',
+        Origin: 'Made in Portugal',
         Sizes: 'S, M, L, XL',
       },
     },
+    
     reviews: [
       {
         name: 'Samantha D.',
@@ -1533,42 +1456,31 @@ const baseProducts = [
     },
     faqs: [
       {
-        question: 'How should I care for the t-shirt?',
-        answer:
-          'Machine wash in cold water (30°C) with similar colors. Do not bleach. Air dry.',
+        question: 'Do the shorts have a drawstring?',
+        answer: 'Yes, an internal drawstring is included.',
       },
       {
-        question: 'Does the t-shirt shrink after washing?',
-        answer:
-          'No, thanks to pre-treatment, the fabric keeps its shape and does not shrink.',
+        question: 'Are they suitable for lounging?',
+        answer: 'Yes, the terry fabric is very soft.',
       },
       {
-        question: 'Is the fit suitable for everyday wear?',
-        answer:
-          'Yes, the t-shirt has a universal Regular Fit — comfortable both for sports and casual looks.',
-      },
-      {
-        question: 'Can I return it if the size doesn’t fit?',
-        answer:
-          'Yes, returns are accepted within 30 days if the tag and packaging are preserved.',
-      },
-      {
-        question: 'What material is the t-shirt made of?',
-        answer: '100% organic cotton — breathable, soft, and eco-friendly.',
+        question: 'Is the fabric thick?',
+        answer: 'Medium thickness, breathable in warm weather.',
       },
     ],
     productDetails: {
       descriptions: [
-        'This premium t-shirt is crafted from 100% organic cotton, offering a breathable and lightweight feel. Designed with a timeless cut, it’s perfect for both casual and smart-casual outfits.',
-        'Durable stitching and high-quality fabric ensure long-lasting wear while maintaining softness wash after wash.',
+        'Terry shorts with a soft looped interior for comfort.',
+        'Easy waistband and a relaxed drape for off duty days.',
       ],
       params: {
-        Material: '100% Organic Cotton',
-        Fit: 'Regular',
+        Material: 'Cotton terry',
+        Fit: 'Relaxed',
         Care: 'Machine wash cold',
-        Origin: 'Made in Italy',
+        Origin: 'Made in Vietnam',
         Sizes: 'S, M, L, XL',
       },
+    
     },
     reviews: [
       {
@@ -1705,42 +1617,31 @@ const baseProducts = [
     },
     faqs: [
       {
-        question: 'How should I care for the t-shirt?',
-        answer:
-          'Machine wash in cold water (30°C) with similar colors. Do not bleach. Air dry.',
+        question: 'Is the tee pre shrunk?',
+        answer: 'Yes, it is pre shrunk for stability.',
       },
       {
-        question: 'Does the t-shirt shrink after washing?',
-        answer:
-          'No, thanks to pre-treatment, the fabric keeps its shape and does not shrink.',
+        question: 'Does it have side seams?',
+        answer: 'Yes, for a cleaner fit.',
       },
       {
-        question: 'Is the fit suitable for everyday wear?',
-        answer:
-          'Yes, the t-shirt has a universal Regular Fit — comfortable both for sports and casual looks.',
-      },
-      {
-        question: 'Can I return it if the size doesn’t fit?',
-        answer:
-          'Yes, returns are accepted within 30 days if the tag and packaging are preserved.',
-      },
-      {
-        question: 'What material is the t-shirt made of?',
-        answer: '100% organic cotton — breathable, soft, and eco-friendly.',
+        question: 'Is the fabric opaque?',
+        answer: 'Yes, it is not see through.',
       },
     ],
     productDetails: {
       descriptions: [
-        'This premium t-shirt is crafted from 100% organic cotton, offering a breathable and lightweight feel. Designed with a timeless cut, it’s perfect for both casual and smart-casual outfits.',
-        'Durable stitching and high-quality fabric ensure long-lasting wear while maintaining softness wash after wash.',
+        'Clean crew tee with a sturdy knit and smooth finish.',
+        'Designed to hold shape and color over time.',
       ],
       params: {
-        Material: '100% Organic Cotton',
+        Material: 'Heavy cotton',
         Fit: 'Regular',
         Care: 'Machine wash cold',
-        Origin: 'Made in Italy',
+        Origin: 'Made in Portugal',
         Sizes: 'S, M, L, XL',
       },
+    
     },
     reviews: [
       {
@@ -1878,43 +1779,32 @@ const baseProducts = [
     },
     faqs: [
       {
-        question: 'How should I care for the t-shirt?',
-        answer:
-          'Machine wash in cold water (30°C) with similar colors. Do not bleach. Air dry.',
+        question: 'Is the print raised or flat?',
+        answer: 'Flat print for a smooth feel.',
       },
       {
-        question: 'Does the t-shirt shrink after washing?',
-        answer:
-          'No, thanks to pre-treatment, the fabric keeps its shape and does not shrink.',
+        question: 'Is it heavyweight?',
+        answer: 'Yes, a slightly heavier cotton.',
       },
       {
-        question: 'Is the fit suitable for everyday wear?',
-        answer:
-          'Yes, the t-shirt has a universal Regular Fit — comfortable both for sports and casual looks.',
-      },
-      {
-        question: 'Can I return it if the size doesn’t fit?',
-        answer:
-          'Yes, returns are accepted within 30 days if the tag and packaging are preserved.',
-      },
-      {
-        question: 'What material is the t-shirt made of?',
-        answer: '100% organic cotton — breathable, soft, and eco-friendly.',
+        question: 'Will the print crack?',
+        answer: 'No, it is designed to stay flexible.',
       },
     ],
     productDetails: {
       descriptions: [
-        'This premium t-shirt is crafted from 100% organic cotton, offering a breathable and lightweight feel. Designed with a timeless cut, it’s perfect for both casual and smart-casual outfits.',
-        'Durable stitching and high-quality fabric ensure long-lasting wear while maintaining softness wash after wash.',
+        'Studio tee with a bold graphic and a heavier drape.',
+        'Comfortable collar and reinforced seams for longevity.',
       ],
       params: {
-        Material: '100% Organic Cotton',
+        Material: 'Premium cotton',
         Fit: 'Regular',
-        Care: 'Machine wash cold',
+        Care: 'Wash cold, low tumble',
         Origin: 'Made in Italy',
         Sizes: 'S, M, L, XL',
       },
     },
+    
     reviews: [
       {
         name: 'Samantha D.',
@@ -2050,43 +1940,32 @@ const baseProducts = [
     },
     faqs: [
       {
-        question: 'How should I care for the t-shirt?',
-        answer:
-          'Machine wash in cold water (30°C) with similar colors. Do not bleach. Air dry.',
+        question: 'Are these shorts quick dry?',
+        answer: 'They dry faster than standard cotton.',
       },
       {
-        question: 'Does the t-shirt shrink after washing?',
-        answer:
-          'No, thanks to pre-treatment, the fabric keeps its shape and does not shrink.',
+        question: 'Do they have pockets?',
+        answer: 'Yes, side pockets and one back pocket.',
       },
       {
-        question: 'Is the fit suitable for everyday wear?',
-        answer:
-          'Yes, the t-shirt has a universal Regular Fit — comfortable both for sports and casual looks.',
-      },
-      {
-        question: 'Can I return it if the size doesn’t fit?',
-        answer:
-          'Yes, returns are accepted within 30 days if the tag and packaging are preserved.',
-      },
-      {
-        question: 'What material is the t-shirt made of?',
-        answer: '100% organic cotton — breathable, soft, and eco-friendly.',
+        question: 'Is the waistband adjustable?',
+        answer: 'Yes, with a drawstring.',
       },
     ],
     productDetails: {
       descriptions: [
-        'This premium t-shirt is crafted from 100% organic cotton, offering a breathable and lightweight feel. Designed with a timeless cut, it’s perfect for both casual and smart-casual outfits.',
-        'Durable stitching and high-quality fabric ensure long-lasting wear while maintaining softness wash after wash.',
+        'Chill shorts with a light feel and quick dry comfort.',
+        'Soft waistband and clean hems for casual wear.',
       ],
       params: {
-        Material: '100% Organic Cotton',
+        Material: 'Cotton nylon blend',
         Fit: 'Regular',
         Care: 'Machine wash cold',
-        Origin: 'Made in Italy',
+        Origin: 'Made in Vietnam',
         Sizes: 'S, M, L, XL',
       },
     },
+    
     reviews: [
       {
         name: 'Samantha D.',
@@ -2228,43 +2107,32 @@ const baseProducts = [
     },
     faqs: [
       {
-        question: 'How should I care for the t-shirt?',
-        answer:
-          'Machine wash in cold water (30°C) with similar colors. Do not bleach. Air dry.',
+        question: 'Is the color vibrant?',
+        answer: 'Yes, the dye is saturated and rich.',
       },
       {
-        question: 'Does the t-shirt shrink after washing?',
-        answer:
-          'No, thanks to pre-treatment, the fabric keeps its shape and does not shrink.',
+        question: 'Is the fit slim?',
+        answer: 'Regular fit with a slight taper.',
       },
       {
-        question: 'Is the fit suitable for everyday wear?',
-        answer:
-          'Yes, the t-shirt has a universal Regular Fit — comfortable both for sports and casual looks.',
-      },
-      {
-        question: 'Can I return it if the size doesn’t fit?',
-        answer:
-          'Yes, returns are accepted within 30 days if the tag and packaging are preserved.',
-      },
-      {
-        question: 'What material is the t-shirt made of?',
-        answer: '100% organic cotton — breathable, soft, and eco-friendly.',
+        question: 'Is it good for events?',
+        answer: 'Yes, it works well for casual parties.',
       },
     ],
     productDetails: {
       descriptions: [
-        'This premium t-shirt is crafted from 100% organic cotton, offering a breathable and lightweight feel. Designed with a timeless cut, it’s perfect for both casual and smart-casual outfits.',
-        'Durable stitching and high-quality fabric ensure long-lasting wear while maintaining softness wash after wash.',
+        'Party ready tee with a smooth finish and vivid color.',
+        'Balanced weight fabric keeps a clean silhouette.',
       ],
       params: {
-        Material: '100% Organic Cotton',
+        Material: 'Cotton jersey',
         Fit: 'Regular',
         Care: 'Machine wash cold',
         Origin: 'Made in Italy',
         Sizes: 'S, M, L, XL',
       },
     },
+    
     reviews: [
       {
         name: 'Samantha D.',
@@ -2410,43 +2278,32 @@ const baseProducts = [
     },
     faqs: [
       {
-        question: 'How should I care for the t-shirt?',
-        answer:
-          'Machine wash in cold water (30°C) with similar colors. Do not bleach. Air dry.',
+        question: 'Does the fabric feel light?',
+        answer: 'Yes, it is lightweight and breathable.',
       },
       {
-        question: 'Does the t-shirt shrink after washing?',
-        answer:
-          'No, thanks to pre-treatment, the fabric keeps its shape and does not shrink.',
+        question: 'Is the neckline tight?',
+        answer: 'No, it is a relaxed crew neck.',
       },
       {
-        question: 'Is the fit suitable for everyday wear?',
-        answer:
-          'Yes, the t-shirt has a universal Regular Fit — comfortable both for sports and casual looks.',
-      },
-      {
-        question: 'Can I return it if the size doesn’t fit?',
-        answer:
-          'Yes, returns are accepted within 30 days if the tag and packaging are preserved.',
-      },
-      {
-        question: 'What material is the t-shirt made of?',
-        answer: '100% organic cotton — breathable, soft, and eco-friendly.',
+        question: 'Is it easy to layer?',
+        answer: 'Yes, it layers under shirts or jackets.',
       },
     ],
     productDetails: {
       descriptions: [
-        'This premium t-shirt is crafted from 100% organic cotton, offering a breathable and lightweight feel. Designed with a timeless cut, it’s perfect for both casual and smart-casual outfits.',
-        'Durable stitching and high-quality fabric ensure long-lasting wear while maintaining softness wash after wash.',
+        'Everyday tee with an airy feel and soft knit.',
+        'Simple construction that layers well with shirts or jackets.',
       ],
       params: {
-        Material: '100% Organic Cotton',
+        Material: 'Lightweight cotton',
         Fit: 'Regular',
         Care: 'Machine wash cold',
-        Origin: 'Made in Italy',
+        Origin: 'Made in Turkey',
         Sizes: 'S, M, L, XL',
       },
     },
+    
     reviews: [
       {
         name: 'Samantha D.',
@@ -2583,43 +2440,32 @@ const baseProducts = [
     },
     faqs: [
       {
-        question: 'How should I care for the t-shirt?',
-        answer:
-          'Machine wash in cold water (30°C) with similar colors. Do not bleach. Air dry.',
+        question: 'Are these joggers fleece lined?',
+        answer: 'No, they are unlined.',
       },
       {
-        question: 'Does the t-shirt shrink after washing?',
-        answer:
-          'No, thanks to pre-treatment, the fabric keeps its shape and does not shrink.',
+        question: 'Is the ankle cuff elastic?',
+        answer: 'Yes, with a soft ribbed cuff.',
       },
       {
-        question: 'Is the fit suitable for everyday wear?',
-        answer:
-          'Yes, the t-shirt has a universal Regular Fit — comfortable both for sports and casual looks.',
-      },
-      {
-        question: 'Can I return it if the size doesn’t fit?',
-        answer:
-          'Yes, returns are accepted within 30 days if the tag and packaging are preserved.',
-      },
-      {
-        question: 'What material is the t-shirt made of?',
-        answer: '100% organic cotton — breathable, soft, and eco-friendly.',
+        question: 'Is the rise mid or high?',
+        answer: 'Mid rise.',
       },
     ],
     productDetails: {
       descriptions: [
-        'This premium t-shirt is crafted from 100% organic cotton, offering a breathable and lightweight feel. Designed with a timeless cut, it’s perfect for both casual and smart-casual outfits.',
-        'Durable stitching and high-quality fabric ensure long-lasting wear while maintaining softness wash after wash.',
+        'Jogger style denim with a tapered leg and flexible feel.',
+        'Structured enough for daily wear with casual comfort.',
       ],
       params: {
-        Material: '100% Organic Cotton',
-        Fit: 'Regular',
-        Care: 'Machine wash cold',
-        Origin: 'Made in Italy',
+        Material: 'Denim with elastane',
+        Fit: 'Tapered',
+        Care: 'Wash cold, hang dry',
+        Origin: 'Made in Portugal',
         Sizes: 'S, M, L, XL',
       },
     },
+    
     reviews: [
       {
         name: 'Samantha D.',
@@ -2761,43 +2607,32 @@ const baseProducts = [
     },
     faqs: [
       {
-        question: 'How should I care for the t-shirt?',
-        answer:
-          'Machine wash in cold water (30°C) with similar colors. Do not bleach. Air dry.',
+        question: 'Is the fabric wrinkle resistant?',
+        answer: 'Yes, it resists light wrinkling.',
       },
       {
-        question: 'Does the t-shirt shrink after washing?',
-        answer:
-          'No, thanks to pre-treatment, the fabric keeps its shape and does not shrink.',
+        question: 'Does it run large?',
+        answer: 'No, it fits true to size.',
       },
       {
-        question: 'Is the fit suitable for everyday wear?',
-        answer:
-          'Yes, the t-shirt has a universal Regular Fit — comfortable both for sports and casual looks.',
-      },
-      {
-        question: 'Can I return it if the size doesn’t fit?',
-        answer:
-          'Yes, returns are accepted within 30 days if the tag and packaging are preserved.',
-      },
-      {
-        question: 'What material is the t-shirt made of?',
-        answer: '100% organic cotton — breathable, soft, and eco-friendly.',
+        question: 'Is it suitable for office wear?',
+        answer: 'Yes, it has a clean, sharp look.',
       },
     ],
     productDetails: {
       descriptions: [
-        'This premium t-shirt is crafted from 100% organic cotton, offering a breathable and lightweight feel. Designed with a timeless cut, it’s perfect for both casual and smart-casual outfits.',
-        'Durable stitching and high-quality fabric ensure long-lasting wear while maintaining softness wash after wash.',
+        'Minimal shirt with a crisp finish and smooth touch.',
+        'Clean lines and a steady drape for a sharp look.',
       ],
       params: {
-        Material: '100% Organic Cotton',
+        Material: 'Cotton poplin',
         Fit: 'Regular',
         Care: 'Machine wash cold',
-        Origin: 'Made in Italy',
+        Origin: 'Made in Turkey',
         Sizes: 'S, M, L, XL',
       },
     },
+    
     reviews: [
       {
         name: 'Samantha D.',
@@ -2934,43 +2769,32 @@ const baseProducts = [
     },
     faqs: [
       {
-        question: 'How should I care for the t-shirt?',
-        answer:
-          'Machine wash in cold water (30°C) with similar colors. Do not bleach. Air dry.',
+        question: 'Is this shirt made of linen?',
+        answer: 'Yes, a linen blend for airflow.',
       },
       {
-        question: 'Does the t-shirt shrink after washing?',
-        answer:
-          'No, thanks to pre-treatment, the fabric keeps its shape and does not shrink.',
+        question: 'Does it require ironing?',
+        answer: 'Light ironing is recommended.',
       },
       {
-        question: 'Is the fit suitable for everyday wear?',
-        answer:
-          'Yes, the t-shirt has a universal Regular Fit — comfortable both for sports and casual looks.',
-      },
-      {
-        question: 'Can I return it if the size doesn’t fit?',
-        answer:
-          'Yes, returns are accepted within 30 days if the tag and packaging are preserved.',
-      },
-      {
-        question: 'What material is the t-shirt made of?',
-        answer: '100% organic cotton — breathable, soft, and eco-friendly.',
+        question: 'Is it semi sheer?',
+        answer: 'No, it is not see through.',
       },
     ],
     productDetails: {
       descriptions: [
-        'This premium t-shirt is crafted from 100% organic cotton, offering a breathable and lightweight feel. Designed with a timeless cut, it’s perfect for both casual and smart-casual outfits.',
-        'Durable stitching and high-quality fabric ensure long-lasting wear while maintaining softness wash after wash.',
+        'Linen blend shirt designed for airflow and lightness.',
+        'Soft texture with a relaxed structure for warm weather.',
       ],
       params: {
-        Material: '100% Organic Cotton',
-        Fit: 'Regular',
-        Care: 'Machine wash cold',
+        Material: 'Linen cotton blend',
+        Fit: 'Relaxed',
+        Care: 'Wash cold, hang dry',
         Origin: 'Made in Italy',
         Sizes: 'S, M, L, XL',
       },
     },
+    
     reviews: [
       {
         name: 'Samantha D.',
@@ -3106,43 +2930,32 @@ const baseProducts = [
     },
     faqs: [
       {
-        question: 'How should I care for the t-shirt?',
-        answer:
-          'Machine wash in cold water (30°C) with similar colors. Do not bleach. Air dry.',
+        question: 'Is the print bright?',
+        answer: 'Yes, it has a bold neon graphic.',
       },
       {
-        question: 'Does the t-shirt shrink after washing?',
-        answer:
-          'No, thanks to pre-treatment, the fabric keeps its shape and does not shrink.',
+        question: 'Is the fit relaxed?',
+        answer: 'Regular fit with room in the chest.',
       },
       {
-        question: 'Is the fit suitable for everyday wear?',
-        answer:
-          'Yes, the t-shirt has a universal Regular Fit — comfortable both for sports and casual looks.',
-      },
-      {
-        question: 'Can I return it if the size doesn’t fit?',
-        answer:
-          'Yes, returns are accepted within 30 days if the tag and packaging are preserved.',
-      },
-      {
-        question: 'What material is the t-shirt made of?',
-        answer: '100% organic cotton — breathable, soft, and eco-friendly.',
+        question: 'Does the collar stretch out?',
+        answer: 'No, it holds shape well.',
       },
     ],
     productDetails: {
       descriptions: [
-        'This premium t-shirt is crafted from 100% organic cotton, offering a breathable and lightweight feel. Designed with a timeless cut, it’s perfect for both casual and smart-casual outfits.',
-        'Durable stitching and high-quality fabric ensure long-lasting wear while maintaining softness wash after wash.',
+        'Party tee with a bold graphic and smooth jersey feel.',
+        'Comfortable weight that keeps a neat drape.',
       ],
       params: {
-        Material: '100% Organic Cotton',
+        Material: 'Cotton jersey',
         Fit: 'Regular',
         Care: 'Machine wash cold',
-        Origin: 'Made in Italy',
+        Origin: 'Made in Vietnam',
         Sizes: 'S, M, L, XL',
       },
     },
+    
     reviews: [
       {
         name: 'Samantha D.',
@@ -3279,43 +3092,32 @@ const baseProducts = [
     },
     faqs: [
       {
-        question: 'How should I care for the t-shirt?',
-        answer:
-          'Machine wash in cold water (30°C) with similar colors. Do not bleach. Air dry.',
+        question: 'Is the fabric smooth?',
+        answer: 'Yes, it has a soft hand feel.',
       },
       {
-        question: 'Does the t-shirt shrink after washing?',
-        answer:
-          'No, thanks to pre-treatment, the fabric keeps its shape and does not shrink.',
+        question: 'Is it suitable for night outings?',
+        answer: 'Yes, it has a subtle sheen.',
       },
       {
-        question: 'Is the fit suitable for everyday wear?',
-        answer:
-          'Yes, the t-shirt has a universal Regular Fit — comfortable both for sports and casual looks.',
-      },
-      {
-        question: 'Can I return it if the size doesn’t fit?',
-        answer:
-          'Yes, returns are accepted within 30 days if the tag and packaging are preserved.',
-      },
-      {
-        question: 'What material is the t-shirt made of?',
-        answer: '100% organic cotton — breathable, soft, and eco-friendly.',
+        question: 'Does it keep its color?',
+        answer: 'Yes, color stays consistent with cold wash.',
       },
     ],
     productDetails: {
       descriptions: [
-        'This premium t-shirt is crafted from 100% organic cotton, offering a breathable and lightweight feel. Designed with a timeless cut, it’s perfect for both casual and smart-casual outfits.',
-        'Durable stitching and high-quality fabric ensure long-lasting wear while maintaining softness wash after wash.',
+        'Statement tee with a clean surface and soft hand feel.',
+        'Balanced weight fabric for an easy party ready look.',
       ],
       params: {
-        Material: '100% Organic Cotton',
+        Material: 'Premium cotton',
         Fit: 'Regular',
         Care: 'Machine wash cold',
         Origin: 'Made in Italy',
         Sizes: 'S, M, L, XL',
       },
     },
+    
     reviews: [
       {
         name: 'Samantha D.',
