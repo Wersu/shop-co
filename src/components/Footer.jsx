@@ -9,15 +9,15 @@ const Footer = () => {
       <footer className="bg-[#F0F0F0] pt-44 lg:pt-36">
         <div className="container mx-auto px-2 2xl:max-w-7xl">
           <div className="flex flex-col gap-9 border-b border-black/10 pb-13 lg:flex-row">
-            <div className="flex flex-col lg:max-w-[248px]">
-              <a
-                href="#!"
+            <div className="flex flex-col lg:max-w-[248px]">        
+              <Link
+                to="/"
                 className="logo-text mb-3.5 block text-[28px] font-bold md:text-[34px] lg:mb-6"
                 aria-label="Home"
                 title="Home"
               >
                 SHOP.CO
-              </a>
+              </Link>
               <p className="mb-5 text-sm text-pretty text-black/60 lg:mb-0">
                 We have clothes that suits your style and which you’re proud to
                 wear. From women to men.
