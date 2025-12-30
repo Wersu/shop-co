@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion'
@@ -7,13 +7,19 @@ const ProductGallery = () => {
   let [indexImg, setIndexImg] = useState(0)
   const product = useSelector((state) => state.product.product)
   const selectedColor = useSelector((state) => state.product.selectedColor)
-  const images = product.images
-  const currentSrc = images[selectedColor][indexImg]
+  const images = product.images || {}
+  const colorImages =
+    images[selectedColor] || Object.values(images)[0] || []
+  const currentSrc = colorImages[indexImg]
+
+  useEffect(() => {
+    setIndexImg(0)
+  }, [selectedColor])
 
   return (
     <div className="flex flex-1 flex-col-reverse gap-3.5 xl:flex-row">
       <div className="flex gap-3.5 xl:max-w-[152px] xl:flex-col">
-        {images[selectedColor].map((item, idx) => {
+        {colorImages.map((item, idx) => {
           return (
             <button
               key={idx}
@@ -37,14 +43,16 @@ const ProductGallery = () => {
           alt=""
           className="block h-full w-full object-contain object-center"
         /> */}
-        <motion.img
-          src={currentSrc}
-          alt={product.title}
-          className="block h-full w-auto object-cover justify-self-center"
-          layoutId={`product-${product.id}`}
-          transition={{ duration: 0.45 }}
-          data-fly-img={`product-${product.id}`}
+        {currentSrc && (
+          <motion.img
+            src={currentSrc}
+            alt={product.title}
+            className="block h-full w-auto object-cover justify-self-center"
+            layoutId={`product-${product.id}`}
+            transition={{ duration: 0.45 }}
+            data-fly-img={`product-${product.id}`}
           />
+        )}
       </div>
     </div>
   )

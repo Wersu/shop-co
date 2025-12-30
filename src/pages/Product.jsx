@@ -11,23 +11,67 @@ import { setProduct } from '../store/productSlice'
 import { useEffect } from 'react'
 
 function Product() {
-  const { id } = useParams()
+  const { id, productId, colorId } = useParams()
   const dispatch = useDispatch()
   const { products, product } = useSelector((state) => state.product)
 
   useEffect(() => {
-    const found = products.find((p) => p.id === Number(id))
+    const normalizedId = productId ?? id
+    let found = null
+
+    if (productId && colorId) {
+      const variants = products.filter(
+        (item) => String(item.productId) === String(productId)
+      )
+      if (variants.length) {
+        const index = Number.parseInt(colorId, 10) - 1
+        const safeIndex =
+          Number.isNaN(index) || index < 0 || index >= variants.length
+            ? 0
+            : index
+        found = variants[safeIndex]
+      }
+    }
+
+    if (!found && normalizedId) {
+      found = products.find((item) => String(item.id) === String(normalizedId))
+    }
+
+    if (!found && normalizedId) {
+      const variants = products.filter(
+        (item) => String(item.productId) === String(normalizedId)
+      )
+      if (variants.length) found = variants[0]
+    }
+
     if (found) dispatch(setProduct(found))
-  }, [id, products, dispatch])
+  }, [id, productId, colorId, products, dispatch])
 
   if (!product) return <div>Loading...</div>
+
+  const productGroupId = product.productId ?? product.id
+  const productVariants = products.filter(
+    (item) => String(item.productId) === String(productGroupId)
+  )
+  const colorIndex = productVariants.findIndex(
+    (item) => item.id === product.id
+  )
+  const colorParam = colorIndex >= 0 ? colorIndex + 1 : 1
+  const productHref = productGroupId
+    ? `/product/${productGroupId}/color/${colorParam}`
+    : `/product/${product.id}`
 
   const breadcrumbs = [
     { label: 'Home', href: '/' },
     { label: 'Shop', href: '/catalog' },
-    { label: 'Men', href: '/catalog?category=men' },
-    { label: 'T-shirts', href: '/catalog?category=tshirts' },
-    { label: 'One Life Graphic T-shirt', href: '/product/1' },
+    {
+      label: product.category || 'Catalog',
+      href: '/catalog',
+    },
+    {
+      label: product.title,
+      href: productHref,
+    },
   ]
 
   return (

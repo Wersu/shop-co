@@ -45,7 +45,34 @@ const getProductDressStyle = (product) => {
   return null
 }
 
-const initialProducts = [
+const createProductVariants = (products) => {
+  return products.flatMap((product) => {
+    const colors = Array.isArray(product.colors) ? product.colors : []
+    if (colors.length === 0) {
+      return [{ ...product, productId: product.id }]
+    }
+
+    return colors.map((color, index) => {
+      const colorHex = getColorHex(color)
+      const colorKey = colorHex
+        ? colorHex.replace('#', '').toLowerCase()
+        : `v${index + 1}`
+      const images =
+        colorHex && product.images?.[colorHex]
+          ? { [colorHex]: product.images[colorHex] }
+          : product.images
+      return {
+        ...product,
+        id: `${product.id}-${colorKey}`,
+        productId: product.id,
+        colors: [color],
+        images,
+      }
+    })
+  })
+}
+
+const baseProducts = [
   {
     id: 1,
     title: 'One Life Graphic T-shirt',
@@ -978,6 +1005,8 @@ const initialProducts = [
     isTop: true,
   },
 ]
+
+const initialProducts = createProductVariants(baseProducts)
 initialProducts.forEach((product) => {
   product.actualPrice = product.price - Math.round(product.price * product.sale)
 })
@@ -1011,7 +1040,7 @@ const productSlice = createSlice({
     },
     setProduct: (state, action) => {
       state.product = action.payload
-      state.selectedColor = getColorHex(state.product.colors[0])
+      state.selectedColor = getColorHex(state.product.colors?.[0])
     },
     setSearchQuery: (state, action) => {
       state.searchQuery = action.payload

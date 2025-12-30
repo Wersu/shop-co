@@ -12,12 +12,12 @@ const ProductCard = ({ product }) => {
     <div className="w-full max-[400px]:max-w-[90dvw]">
       <Link
         to={`/product/${product.id}`}
-        className="block w-full overflow-hidden rounded-3xl bg-[#F0EEED]"
+        className="block w-full overflow-hidden rounded-3xl bg-[#F0EEED] aspect-[4/5]"
       >
         <img
           src={product.images[previewColor][0]}
           alt={product.title}
-          className="h-auto w-full transition-transform hover:scale-110"
+          className="h-full w-full object-cover object-center transition-transform hover:scale-110"
         />
       </Link>
       <div className="mt-4 flex flex-col gap-2">
@@ -38,10 +38,10 @@ const ProductCard = ({ product }) => {
             </div>
             {product.sale ? (
               <div className="flex gap-2.5">
-                <p className="subtitle text-base sm:text-xl md:text-2xl">
+                <p className="subtitle text-base sm:text-xl xl:text-2xl">
                   ${product.actualPrice}
                 </p>
-                <p className="subtitle text-base text-black/40 line-through sm:text-xl md:text-2xl">
+                <p className="subtitle text-base text-black/40 line-through sm:text-xl xl:text-2xl">
                   ${product.price}
                 </p>
                 <p className="inline content-center rounded-full bg-[rgba(255,51,51,0.1)] px-1 py-0.5 text-xs text-[#FF3333] md:px-3 md:py-1.5">
