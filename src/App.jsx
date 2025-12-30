@@ -7,6 +7,8 @@ import Shop from './pages/Shop'
 import OnSale from './pages/OnSale'
 import NewArrivalsPage from './pages/NewArrivalsPage'
 import TopSellingPage from './pages/TopSellingPage'
+import BrandsPage from './pages/BrandsPage'
+import About from './pages/About'
 import Cart from './pages/Cart'
 import Product from './pages/Product'
 import ScrollToTop from './hooks/ScrollToTop'
@@ -26,6 +28,8 @@ function App() {
           <Route path="/shop/on-sale" element={<OnSale />} />
           <Route path="/shop/new-arrivals" element={<NewArrivalsPage />} />
           <Route path="/shop/top-selling" element={<TopSellingPage />} />
+          <Route path="/brands" element={<BrandsPage />} />
+          <Route path="/about" element={<About />} />
           <Route
             path="/shop/casual"
             element={<Catalog title="Casual" initialDressStyle="Casual" />}
