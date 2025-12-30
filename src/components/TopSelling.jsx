@@ -24,7 +24,7 @@ const TopSelling = () => {
         })}
       </div>
       <Link
-        to="/shop"
+        to="/shop/top-selling"
         className="box-border w-55 rounded-full border border-black/10 px-13 py-3 text-center hover:border-black hover:bg-black hover:text-white max-sm:w-[90%] sm:py-4"
       >
         View All

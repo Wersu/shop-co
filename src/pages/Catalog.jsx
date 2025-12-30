@@ -4,21 +4,36 @@ import ProductCard from './../components/ProductCard'
 import CatalogFiltersContent from '../components/CatalogFiltersContent'
 import { applyCatalogFilters, resetCatalogFilters } from '../store/productSlice'
 
-const buildDefaultFilters = (dressStyleValue = null) => ({
+const buildDefaultFilters = (overrides = {}) => ({
   category: null,
   price: [50, 200],
   colors: [],
   sizes: [],
-  dressStyle: dressStyleValue,
+  dressStyle: null,
+  onSale: false,
+  isNew: false,
+  isTop: false,
+  ...overrides,
 })
 
-const Catalog = ({ title = 'Catalog', initialDressStyle = null }) => {
+const Catalog = ({
+  title = 'Catalog',
+  initialDressStyle = null,
+  initialOnSale = false,
+  initialIsNew = false,
+  initialIsTop = false,
+}) => {
   const dispatch = useDispatch()
 
   const products = useSelector((state) => state.product.catalogFilteredProducts)
 
   const [localFilters, setLocalFilters] = useState(() =>
-    buildDefaultFilters(initialDressStyle)
+    buildDefaultFilters({
+      dressStyle: initialDressStyle,
+      onSale: initialOnSale,
+      isNew: initialIsNew,
+      isTop: initialIsTop,
+    })
   )
   const [priceValue, setPriceValue] = useState(200)
   const [isFiltersOpen, setIsFiltersOpen] = useState(false)
@@ -35,11 +50,27 @@ const Catalog = ({ title = 'Catalog', initialDressStyle = null }) => {
   }, [dispatch])
 
   useEffect(() => {
-    if (!initialDressStyle) return
-    const nextFilters = buildDefaultFilters(initialDressStyle)
+    const hasInitialFilters =
+      Boolean(initialDressStyle) ||
+      initialOnSale ||
+      initialIsNew ||
+      initialIsTop
+    if (!hasInitialFilters) return
+    const nextFilters = buildDefaultFilters({
+      dressStyle: initialDressStyle,
+      onSale: initialOnSale,
+      isNew: initialIsNew,
+      isTop: initialIsTop,
+    })
     setLocalFilters(nextFilters)
     dispatch(applyCatalogFilters(nextFilters))
-  }, [dispatch, initialDressStyle])
+  }, [
+    dispatch,
+    initialDressStyle,
+    initialOnSale,
+    initialIsNew,
+    initialIsTop,
+  ])
 
   useEffect(() => {
     if (!isFiltersOpen) return

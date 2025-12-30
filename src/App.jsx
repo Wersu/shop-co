@@ -4,6 +4,9 @@ import Footer from './components/Footer'
 import Home from './pages/Home'
 import Catalog from './pages/Catalog'
 import Shop from './pages/Shop'
+import OnSale from './pages/OnSale'
+import NewArrivalsPage from './pages/NewArrivalsPage'
+import TopSellingPage from './pages/TopSellingPage'
 import Cart from './pages/Cart'
 import Product from './pages/Product'
 import ScrollToTop from './hooks/ScrollToTop'
@@ -20,6 +23,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/catalog" element={<Catalog title="Catalog" />} />
           <Route path="/shop" element={<Shop />} />
+          <Route path="/shop/on-sale" element={<OnSale />} />
+          <Route path="/shop/new-arrivals" element={<NewArrivalsPage />} />
+          <Route path="/shop/top-selling" element={<TopSellingPage />} />
           <Route
             path="/shop/casual"
             element={<Catalog title="Casual" initialDressStyle="Casual" />}

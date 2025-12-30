@@ -342,10 +342,10 @@ function Header() {
               </div>
             </div>
 
-            <Link to="/catalog" className="hover:text-black/60">
+            <Link to="/shop/on-sale" className="hover:text-black/60">
               On Sale
             </Link>
-            <Link to="/catalog" className="hover:text-black/60">
+            <Link to="/shop/new-arrivals" className="hover:text-black/60">
               New Arrivals
             </Link>
             <Link to="/catalog" className="hover:text-black/60">
@@ -568,12 +568,12 @@ function Header() {
               </ul>
             </li>
             <li>
-              <Link to="/catalog" className="hover:text-black/60" onClick={()=>{setOpenSidenav(false)}}>
+              <Link to="/shop/on-sale" className="hover:text-black/60" onClick={()=>{setOpenSidenav(false)}}>
                 On Sale
               </Link>
             </li>
             <li>
-              <Link to="/catalog" className="hover:text-black/60" onClick={()=>{setOpenSidenav(false)}}>
+              <Link to="/shop/new-arrivals" className="hover:text-black/60" onClick={()=>{setOpenSidenav(false)}}>
                 New Arrivals
               </Link>
             </li>
