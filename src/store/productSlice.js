@@ -94,7 +94,6 @@ const baseProducts = [
       '#354a1f': [
         `${base}/img/products/t-shirt-front.png`,
         `${base}/img/products/t-shirt-back.png`,
-        `${base}/img/products/t-shirt-real.png`,
       ],
       '#000000': [
         `${base}/img/products/black-t-shirt.png`,
