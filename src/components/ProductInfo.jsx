@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import RatingStars from './RatingStar'
 import { useSelector, useDispatch } from 'react-redux'
-import { setColor, setSize } from '../store/productSlice'
+import { setColor, setProduct, setSize } from '../store/productSlice'
 import { addToCart, removeFromCart } from '../store/cartSlice'
 import { getColorHex, getColorName } from '../utils/colors'
+import { useNavigate } from 'react-router-dom'
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion'
 
@@ -11,6 +12,7 @@ const ProductInfo = () => {
   const product = useSelector((state) => state.product.product)
   const selectedColor = useSelector((state) => state.product.selectedColor)
   const selectedSize = useSelector((state) => state.product.selectedSize)
+  const products = useSelector((state) => state.product.products)
 
   const [sizeError, setSizeError] = useState(false)
   const [shake, setShake] = useState(false)
@@ -18,6 +20,18 @@ const ProductInfo = () => {
   const cart = useSelector((state) => state.cart.cart)
 
   const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const productVariants = products.filter(
+    (item) => item.productId === product.productId
+  )
+  const availableVariants = productVariants.length
+    ? productVariants
+    : [product]
+  const colorOptions = availableVariants.map((variant) => ({
+    id: variant.id,
+    colorHex: getColorHex(variant.colors?.[0]),
+    colorName: getColorName(variant.colors?.[0]),
+  }))
   const itemInCart = cart.find(
     (item) =>
       item.id === product.id &&
@@ -57,6 +71,24 @@ const ProductInfo = () => {
     window.dispatchEvent(ev)
   }
 
+  const handleColorSelect = (variantId) => {
+    const nextIndex = availableVariants.findIndex(
+      (item) => item.id === variantId
+    )
+    const nextVariant = availableVariants[nextIndex]
+    if (!nextVariant) return
+    dispatch(setProduct(nextVariant))
+    dispatch(setColor(getColorHex(nextVariant.colors?.[0])))
+    if (nextVariant.id !== product.id) {
+      const productGroupId =
+        nextVariant.productId ?? product.productId ?? product.id
+      const colorParam = nextIndex >= 0 ? nextIndex + 1 : 1
+      navigate(`/product/${productGroupId}/color/${colorParam}`, {
+        replace: true,
+      })
+    }
+  }
+
   return (
     <div>
       <div className="flex flex-col gap-2 pb-3 sm:gap-3.5 sm:pb-6">
@@ -91,14 +123,13 @@ const ProductInfo = () => {
       <div className="border-y border-black/10 py-3 sm:py-6">
         <p className="mb-4 text-black/60">Select Colors</p>
         <ul className="flex gap-4">
-          {product.colors.map((color) => {
-            const colorHex = getColorHex(color)
-            const colorName = getColorName(color)
+          {colorOptions.map(({ id, colorHex, colorName }) => {
+            if (!colorHex) return null
             return (
               <li
-                key={colorHex}
+                key={id}
                 className={`flex h-[37px] w-[37px] cursor-pointer items-center justify-center rounded-full hover:scale-90`}
-                onClick={() => dispatch(setColor(colorHex))}
+                onClick={() => handleColorSelect(id)}
                 style={{ backgroundColor: colorHex }}
                 title={colorName}
               >

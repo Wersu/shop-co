@@ -4,9 +4,17 @@ import useScrollAnimation from '../hooks/useScrollAnimation'
 import { useSelector } from 'react-redux'
 
 const Recommendations = () => {
-  const indexes = useSelector((state) => state.product.product.recommendations)
+  const indexes =
+    useSelector((state) => state.product.product?.recommendations) || []
   let products = useSelector((state) => state.product.products)
-  products = products.filter((product) => indexes.includes(product.id))
+  const seen = new Set()
+  products = products.filter((product) => {
+    const key = product.productId ?? product.id
+    if (!indexes.includes(key)) return false
+    if (seen.has(key)) return false
+    seen.add(key)
+    return true
+  })
   useScrollAnimation()
 
   return (

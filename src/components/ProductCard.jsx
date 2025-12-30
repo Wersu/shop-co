@@ -12,12 +12,12 @@ const ProductCard = ({ product }) => {
     <div className="w-full max-[400px]:max-w-[90dvw]">
       <Link
         to={`/product/${product.id}`}
-        className="block w-full overflow-hidden rounded-3xl bg-[#F0EEED]"
+        className="block w-full overflow-hidden rounded-3xl bg-[#F0EEED] max-h-[300px]"
       >
         <img
           src={product.images[previewColor][0]}
           alt={product.title}
-          className="h-auto w-full transition-transform hover:scale-110"
+          className="h-full w-full transition-transform hover:scale-110 object-center object-contain"
         />
       </Link>
       <div className="mt-4 flex flex-col gap-2">
