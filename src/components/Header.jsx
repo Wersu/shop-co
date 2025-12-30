@@ -351,6 +351,9 @@ function Header() {
             <Link to="/brands" className="hover:text-black/60">
               Brands
             </Link>
+            <Link to="/about" className="hover:text-black/60">
+              About
+            </Link>
           </nav>
         </div>
 
@@ -580,6 +583,11 @@ function Header() {
             <li>
               <Link to="/brands" className="hover:text-black/60" onClick={()=>{setOpenSidenav(false)}}>
                 Brands
+              </Link>
+            </li>
+            <li>
+              <Link to="/about" className="hover:text-black/60" onClick={()=>{setOpenSidenav(false)}}>
+                About
               </Link>
             </li>
           </ul>

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import NewsletterSignup from './NewsletterSignup'
 
 const Footer = () => {
@@ -108,12 +109,12 @@ const Footer = () => {
                   Company
                 </h3>
                 <div className="flex flex-col gap-4">
-                  <a
-                    href="#!"
+                  <Link
+                    to="/about"
                     className="text-black/60 transition-colors delay-200 hover:text-black"
                   >
                     About
-                  </a>
+                  </Link>
                   <a
                     href="#!"
                     className="text-black/60 transition-colors delay-200 hover:text-black"
