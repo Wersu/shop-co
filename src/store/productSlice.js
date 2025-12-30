@@ -265,13 +265,13 @@ const baseProducts = [
     category: 'Shorts',
     dressStyle: 'Casual',
     price: 140,
-    rating: 4.5,
+    rating: 4.1,
     description:
       'Lightweight casual shorts with an easy waist and breathable fabric for warm days. This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.',
     colors: [
       { '#24c7d6': 'blue' },
     ],
-    sizes: ['Small', 'X-Large'],
+    sizes: ['Small', 'Large'],
     images: {
       '#24c7d6': [
         `${base}/img/products/bermuda-shorts.png`,
@@ -439,14 +439,14 @@ const baseProducts = [
     dressStyle: 'Casual',
     price: 185,
     sale: 0.2,
-    rating: 4.5,
+    rating: 4.6,
     description:
       'Slim casual jeans with a clean finish and durable denim for daily rotation. This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.',
     colors: [
       { '#000000': 'black' },
       { '#13476b': 'blue' },
     ],
-    sizes: ['Small', 'Medium', 'Large', 'X-Large'],
+    sizes: ['Medium', 'Large', 'X-Large'],
     images: {
       '#000000': [
         `${base}/img/products/black-jeans.png`,
@@ -618,14 +618,14 @@ const baseProducts = [
     category: 'T-shirts',
     dressStyle: 'Gym',
     price: 160,
-    rating: 4.5,
+    rating: 4.0,
     description:
       'Moisture friendly tee with stretch and a neat hem for training sessions. This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.',
     colors: [
       { '#000000': 'white' },
       { '#f08307': 'orange' },
     ],
-    sizes: ['Small', 'Medium', 'Large', 'X-Large'],
+    sizes: ['Small', 'Medium'],
     images: {
       '#000000': [
         `${base}/img/products/black-stripped-t-shirt.png`,
@@ -798,14 +798,14 @@ const baseProducts = [
     dressStyle: 'Casual',
     price: 210,
     sale: 0.15,
-    rating: 4.5,
+    rating: 4.3,
     description:
       'Casual button shirt with crisp lines and a comfortable regular fit. This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.',
     colors: [
       { '#2a206b': 'blue, purple, red' },
       { '#64a178': 'green' },
     ],
-    sizes: ['Small', 'Medium', 'Large', 'X-Large'],
+    sizes: ['Medium', 'X-Large'],
     images: {
       '#2a206b': [
         `${base}/img/products/checkered-shirt.png`,
@@ -977,13 +977,13 @@ const baseProducts = [
     category: 'T-shirts',
     dressStyle: 'Casual',
     price: 125,
-    rating: 4.5,
+    rating: 3.9,
     description:
       'Casual t-shirt with a soft handfeel and minimal logo print. This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.',
     colors: [
       { '#e88931': 'orange' },
     ],
-    sizes: ['Small', 'Medium', 'Large', 'X-Large'],
+    sizes: ['Large', 'X-Large'],
     images: {
       '#e88931': [
         `${base}/img/products/orange-t-shirt.png`,
@@ -1151,14 +1151,14 @@ const baseProducts = [
     dressStyle: 'Casual',
     price: 195,
     sale: 0.25,
-    rating: 4.5,
+    rating: 4.2,
     description:
       'Relaxed t-shirt with fine stripes and smooth combed cotton. This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.',
     colors: [
       { '#3a7ea6': 'cyan' },
       { '#bf7ab0': 'pink' },
     ],
-    sizes: ['Small', 'Medium', 'Large', 'X-Large'],
+    sizes: ['Small', 'Large'],
     images: {
       '#3a7ea6': [
         `${base}/img/products/blue-polo.png`,
@@ -1330,13 +1330,13 @@ const baseProducts = [
     category: 'Jeans',
     dressStyle: 'Casual',
     price: 155,
-    rating: 4.5,
+    rating: 4.4,
     description:
       'Everyday jeans with a tapered leg and sturdy midweight denim. This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.',
     colors: [
       { '#3a7ea6': 'cyan' },
     ],
-    sizes: ['Small', 'Medium', 'Large', 'X-Large'],
+    sizes: ['Medium', 'Large'],
     images: {
       '#3a7ea6': [
         `${base}/img/products/jeans1-1.webp`,
@@ -1503,7 +1503,7 @@ const baseProducts = [
     dressStyle: 'Formal',
     price: 170,
     sale: 0.1,
-    rating: 4.5,
+    rating: 3.8,
     description:
       'Formal shirt with a sharp collar and smooth weave for office looks. This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.',
     colors: [
@@ -1512,7 +1512,7 @@ const baseProducts = [
       { '#7babc7': 'cyan' },
       { '#946d34': 'brown, orange' },
     ],
-    sizes: ['Small', 'Medium', 'Large', 'X-Large'],
+    sizes: ['Small', 'X-Large'],
     images: {
       '#000000': [
         `${base}/img/products/shirt1-1.webp`,
@@ -1696,7 +1696,7 @@ const baseProducts = [
     colors: [
       { '#7babc7': 'cyan' },
     ],
-    sizes: ['Small', 'Medium', 'Large', 'X-Large'],
+    sizes: ['Small', 'Medium', 'Large'],
     images: {
       '#7babc7': [
         `${base}/img/products/shirt5-1.webp`,
@@ -1863,13 +1863,13 @@ const baseProducts = [
     dressStyle: 'Formal',
     price: 220,
     sale: 0.3,
-    rating: 4.5,
+    rating: 4.7,
     description:
       'Crisp poplin shirt tailored for formal outfits and easy layering. This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.',
     colors: [
       { '#d4cc85': 'orange' },
     ],
-    sizes: ['Small', 'Medium', 'Large', 'X-Large'],
+    sizes: ['Large'],
     images: {
       '#d4cc85': [
         `${base}/img/products/shirt6-1.webp`,
@@ -2035,13 +2035,13 @@ const baseProducts = [
     category: 'Hoodie',
     dressStyle: 'Casual',
     price: 165,
-    rating: 4.5,
+    rating: 4.0,
     description:
       'Cozy hoodie with a soft fleece lining and simple casual styling. This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.',
     colors: [
       { '#282b7a': 'blue' },
     ],
-    sizes: ['Small', 'Medium', 'Large', 'X-Large'],
+    sizes: ['Small', 'Medium'],
     images: {
       '#282b7a': [
         `${base}/img/products/hoodie1-1.webp`,
@@ -2208,14 +2208,14 @@ const baseProducts = [
     dressStyle: 'Casual',
     price: 190,
     sale: 0.2,
-    rating: 4.5,
+    rating: 4.3,
     description:
       'Warm hoodie with a structured hood and everyday casual comfort. This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.',
     colors: [
       { '#edb97e': 'orange' },
       { '#7d7d7d': 'white' },
     ],
-    sizes: ['Small', 'Medium', 'Large', 'X-Large'],
+    sizes: ['Medium', 'X-Large'],
     images: {
       '#edb97e': [
         `${base}/img/products/hoodie2-1.webp`,
@@ -2385,7 +2385,7 @@ const baseProducts = [
     category: 'Shorts',
     dressStyle: 'Gym',
     price: 145,
-    rating: 4.5,
+    rating: 4.1,
     description:
       'Gym shorts with breathable panels and a secure waistband. This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.',
     colors: [
@@ -2393,7 +2393,7 @@ const baseProducts = [
       { '#edb97e': 'orange' },
       { '#302b66': 'blue' },
     ],
-    sizes: ['Small', 'Medium', 'Large', 'X-Large'],
+    sizes: ['Small', 'Large'],
     images: {
       '#000000': [
         `${base}/img/products/shorts1-1.webp`,
@@ -2568,13 +2568,13 @@ const baseProducts = [
     dressStyle: 'Gym',
     price: 200,
     sale: 0.15,
-    rating: 4.5,
+    rating: 4.4,
     description:
       'Gym tee with quick dry fabric and a streamlined athletic cut. This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.',
     colors: [
       { '#000000': 'black' },
     ],
-    sizes: ['Small', 'Medium', 'Large', 'X-Large'],
+    sizes: ['Medium', 'Large'],
     images: {
       '#000000': [
         `${base}/img/products/tshirt1-1.webp`,
@@ -2740,14 +2740,14 @@ const baseProducts = [
     category: 'T-shirts',
     dressStyle: 'Gym',
     price: 175,
-    rating: 4.5,
+    rating: 3.7,
     description:
       'Training t-shirt with light stretch and smooth seams for movement. This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.',
     colors: [
       { '#0c0742': 'blue' },
       { '#828282': 'white' },
     ],
-    sizes: ['Small', 'Medium', 'Large', 'X-Large'],
+    sizes: ['Small', 'Medium', 'X-Large'],
     images: {
       '#0c0742': [
         `${base}/img/products/tshirt3-1.webp`,
@@ -2919,13 +2919,13 @@ const baseProducts = [
     dressStyle: 'Party',
     price: 230,
     sale: 0.35,
-    rating: 4.5,
+    rating: 4.6,
     description:
       'Party ready shirt with a sleek sheen and tailored fit. This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.',
     colors: [
       { '#ffffff': 'white' },
     ],
-    sizes: ['Small', 'Medium', 'Large', 'X-Large'],
+    sizes: ['Large', 'X-Large'],
     images: {
       '#ffffff': [
         `${base}/img/products/shirt7-1.webp`,
@@ -3091,13 +3091,13 @@ const baseProducts = [
     category: 'T-shirts',
     dressStyle: 'Party',
     price: 150,
-    rating: 4.5,
+    rating: 4.2,
     description:
       'Party t-shirt with a bold print and a soft breathable feel. This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.',
     colors: [
       { '#000000': 'white' },
     ],
-    sizes: ['Small', 'Medium', 'Large', 'X-Large'],
+    sizes: ['Small', 'Large'],
     images: {
       '#000000': [
         `${base}/img/products/tshirt4-1.webp`,
@@ -3270,7 +3270,7 @@ const baseProducts = [
     colors: [
       { '#ffffff': 'white' },
     ],
-    sizes: ['Small', 'Medium', 'Large', 'X-Large'],
+    sizes: ['Medium', 'Large', 'X-Large'],
     images: {
       '#ffffff': [
         `${base}/img/products/tshirt5-1.webp`,
